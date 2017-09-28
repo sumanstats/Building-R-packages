@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>devtools package &mdash; Building R Packages 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Documentation" href="documentation.html"/>
+        <link rel="prev" title="man/ sub-directory" href="man-sub-directory.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Building R Packages
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="before_start.html">Before You Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-packages.html">R Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_structure.html">Basic Structure of R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description.html">DESCRIPTION file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">NAMESPACE file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">devtools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-package">Creating a package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-functions-in-devtools">Other functions in devtools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Building R Packages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>devtools package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/devtools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="devtools-package">
+<h1>devtools package<a class="headerlink" href="#devtools-package" title="Permalink to this headline">¶</a></h1>
+<p>R package development has become substantially easier in recent years with the introduction of a package by Hadley Wickham called devtools. As the package name suggests, this includes a variety of functions that facilitate software development in R.</p>
+<p>Hands down, the best resource for mastering the devtools package is the book R Packages by Hadley Wickham. The full book is available online for free at <a class="reference external" href="http://r-pkgs.had.co.nz">http://r-pkgs.had.co.nz</a>. It is also available as a hard copy book published by O’Reilly. If you plan to develop a lot of R packages, it is well worth your time to read this book closely.</p>
+<p>Here are some of the key functions included in devtools and what they do, roughly in the order you are likely to use them as you develop an R package:</p>
+<dl class="docutils">
+<dt>load_all</dt>
+<dd>Load the code for all functions in the package</dd>
+<dt>document</dt>
+<dd>Create \man documentation files and the “NAMESPACE” file from roxygen2 code</dd>
+<dt>use_data</dt>
+<dd>Save an object in your R session as a dataset in the package</dd>
+<dt>use_vignette</dt>
+<dd>Set up the package to include a vignette</dd>
+<dt>use_readme_rmd</dt>
+<dd>Set up the package to include a README file in Rmarkdown format</dd>
+<dt>use_build_ignore</dt>
+<dd>Specify files that should be ignored when building the R package (for example, if you have a folder where you’re drafting a journal article about the package, you can include all related files in a folder that you set to be ignored during the package build)</dd>
+<dt>check</dt>
+<dd>Check the full R package for any ERRORs, WARNINGs, or NOTEs</dd>
+<dt>build_win</dt>
+<dd>Build a version of the package for Windows and send it to be checked on a Windows machine. You’ll receive an email with a link to the results.</dd>
+<dt>use_travis</dt>
+<dd>Set the package up to facilitate using Travis CI with the package</dd>
+<dt>use_cran_comments</dt>
+<dd>Create a file where you can add comments to include with your CRAN submission.</dd>
+<dt>submit_cran</dt>
+<dd>Submit the package to CRAN</dd>
+<dt>use_news_md</dt>
+<dd>Add a file to the package to give news on changes in new versions</dd>
+</dl>
+<p>Some of these functions you’ll only need to use once for a package. The one-time (per package) functions are mostly those that set up a certain type of infrastructure for the package. For example, if you want to use R Markdown to create a README file for a package you are posting to GitHub, you can create the proper infrastructure with the use_readme_rmd function. This function adds a starter README file in the main directory of the package with the name “README.Rmd”. You can edit this file and render it to Markdown to provide GitHub users more information about your package. However, you will have problems with your CRAN checks if there is a README file in this top-level directory of the package, so the use_readme_rmd function also adds the files names for the R Markdown README file, and the Markdown file it creates, in the “.Rbuildignore” file, so it is not included when the package is built.</p>
+<div class="section" id="creating-a-package">
+<h2>Creating a package<a class="headerlink" href="#creating-a-package" title="Permalink to this headline">¶</a></h2>
+<p>The earliest infrastructure function you will use from the devtools package is create i.e. <code class="docutils literal"><span class="pre">devtools::create()</span></code>. This function inputs the filepath for the directory where you would like to create the package and creates the initial package structure (as a note, this directory should not yet exist). You will then add the elements (code, data, etc.) for the package within this structure. As an alternative to create, you can also initialize an R package in RStudio by selecting <code class="docutils literal"><span class="pre">&quot;File&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;New</span> <span class="pre">Project&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;New</span> <span class="pre">Direction&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;R</span> <span class="pre">Package&quot;</span></code>.</p>
+<p>In addition to starting a package using create or by creating a new project in RStudio, you could also create the package by hand, creating and then filling a directory. However, it’s hard to think of any circumstances where there would be a good reason to do that rather than using some of the more convenient tools offered by devtools and RStudio.</p>
+<p>Figure below gives an example of what the new package directory will look like after you create an initial package structure with create or via the RStudio “New Project” interface. This initial package directory includes an R subdirectory, where you will save R scripts with all code defining R functions for the package. It also includes two files that will store metadata and interface information about your package (DESCRIPTION and NAMESPACE), as well as an R project file (.Rproj extension) that saves some project options for the directory. Finally, the initial package structure includes two files that can be used to exclude some files in the directory from either being followed by git <code class="docutils literal"><span class="pre">(.gitignore)</span></code> or included when the package is built <code class="docutils literal"><span class="pre">(.Rbuildignore)</span></code>. These two files have names that start with a dot, so they may not be listed if you look at the package directory structure in a file manager like “Finder” on Macs. These “dot-files” will, however, be listed in the “Files” tab that shows up in one of the RStudio panes when you open an R project like a package directory, as shown in this figure.</p>
+<img alt="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/BHUQIaXQEeaSmhJaoV5QvA_faa29723fe1dffb2023c7c32f63b1fb9_initial_package_structure.png?expiry=1506729600000&amp;hmac=OfCUTTEHZ8kjTxX0OB1dnfY677G60jbH5emnV3T6TkY" src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/BHUQIaXQEeaSmhJaoV5QvA_faa29723fe1dffb2023c7c32f63b1fb9_initial_package_structure.png?expiry=1506729600000&amp;hmac=OfCUTTEHZ8kjTxX0OB1dnfY677G60jbH5emnV3T6TkY" />
+</div>
+<div class="section" id="other-functions-in-devtools">
+<h2>Other functions in devtools<a class="headerlink" href="#other-functions-in-devtools" title="Permalink to this headline">¶</a></h2>
+<p>In contrast to the devtools infrastructure functions that you will only use once per package, there are other devtools functions you’ll use many times as you develop a package. Two of the work horses of devtools are <code class="docutils literal"><span class="pre">load_all</span></code> and <code class="docutils literal"><span class="pre">document</span></code>. The <code class="docutils literal"><span class="pre">load_all</span></code> function loads the entire package (by default, based on the current working directory, although you can also give the filepath to load a directory elsewhere). In addition to loading all R functions, <strong>it also loads all package data and compiles and connects C, C++, and FORTRAN</strong> code in the package. As you add to a package, you can use load_all to ensure you’re using the latest version of all package functions and data. The <code class="docutils literal"><span class="pre">document</span></code> function rewrites the help files and NAMESPACE file based on the latest version of the <strong>roxygen2 comments included with each function</strong> (writing roxygen2 is covered in more detail in the next section).</p>
+<p>RStudio has created a very helpful Package Development Cheatsheet that covers many of the devtools functions. A pdf of this cheatsheet is <a class="reference external" href="https://www.rstudio.com/wp-content/uploads/2015/06/devtools-cheatsheet.pdf">available here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documentation.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="man-sub-directory.html" class="btn btn-neutral" title="man/ sub-directory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Suman Khanal and Ashish Khanal.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
