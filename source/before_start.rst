@@ -18,6 +18,8 @@ On Windows, the R Core has put together a package of tools that you can download
 Linux
 *****
 
-If you are using R on a Unix-like system then you may have already have the tools for building R packages. In particular, if you built R from the sources, then you already have a C compiler and Fortran compiler. If, however, you installed R from a package management system, then you may need to install the compilers, as well as the header files. These usually coming in packages with the suffix -devel. For example, the header files for the readline package may come in the package readline-devel. The catch is that these -devel packages are not needed to run R, only to build R packages from the sources.
+If you are using R on a Unix-like system then you may have already have the tools for building R packages. In particular, if you built R from the sources, then you already have a C compiler and Fortran compiler. 
+In ``Debian``, ``apt-get install build-essential`` will install the necessary build tools like ``gcc``, ``g++``, ``make`` and many others.
+If, however, you installed R from a package management system, then you may need to install the compilers, as well as the **header files**. These usually coming in packages with the suffix **-devel**. For example, the header files for the readline package may come in the package ``readline-devel``. The catch is that these **-devel** packages are not needed to run R, only to build R packages from the sources.
 
 
