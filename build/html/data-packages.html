@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Packages &mdash; Building R Packages 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Testing Code" href="testing-code.html"/>
+        <link rel="prev" title="Including Data" href="data-for-demos.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Building R Packages
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="before_start.html">Before You Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-packages.html">R Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_structure.html">Basic Structure of R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description.html">DESCRIPTION file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">NAMESPACE file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes-and-readme.html">Vignettes and Readme files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-markdown.html">Knitr and Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-options.html">Common Knitr options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roxygen2.html">roxygen2 and help files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-for-demos.html">Including Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing-code.html">Testing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testthat-package.html">testthat package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="passing-cran-checks.html">CRAN checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licensing.html">Open Source Licensing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-open.html">Why Open Source?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-to-github.html">Linking local repo to Github repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software-design.html">Software Design and Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crossplat.html">Cross Platform Development</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Building R Packages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Data Packages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/data-packages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-packages">
+<h1>Data Packages<a class="headerlink" href="#data-packages" title="Permalink to this headline">¶</a></h1>
+<p>There are several packages which were created for the sole purpose of distributing data including <a class="reference external" href="https://github.com/juliasilge/janeaustenr">janeaustenr</a>, <a class="reference external" href="https://github.com/jennybc/gapminder">gapminder</a>, <a class="reference external" href="https://github.com/hadley/babynames">babynames</a>, and <a class="reference external" href="https://github.com/seankross/lego">lego</a>. Using an R package as a means of distributing data has advantages and disadvantages. On one hand the data is extremely easy to load into R, a user only needs to install and load the package. This can be useful for teaching folks who are new to R and may not be familiar with importing and cleaning data. Data packages also allow you document datasets using <code class="docutils literal"><span class="pre">roxygen2</span></code>, which provides a much cleaner and more programmer-friendly kind of code book compared to including a file that describes the data. On the other hand data in a data package is not accessible to people who are not using R, though there’s nothing stopping you from distributing the data in multiple ways.</p>
+<p>If you decide to create a data package you should document the process that you used to obtain, clean, and save the data. One approach to doing this is to use the <code class="docutils literal"><span class="pre">use_data_raw()</span></code> function from <code class="docutils literal"><span class="pre">devtools</span></code>. This will create a directory inside of your package called <code class="docutils literal"><span class="pre">data_raw</span></code>. Inside of this directory you should include any raw files that the data objects in you package are derived from. You should also include one or more R scripts which import, clean, and save those data objects in your R package. Theoretically if you needed to update the data package with new data files you should be able to just run these scripts again in order to rebuild your package.</p>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Including data in a package is useful for showing new users how to use your package, using data internally, and sharing and documenting datasets. The <code class="docutils literal"><span class="pre">devtools</span></code> package includes several useful functions to help you add data to your package including <code class="docutils literal"><span class="pre">use_data()</span></code> and <code class="docutils literal"><span class="pre">use_data_raw()</span></code>. You can document data within your package just like you would document a function.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="testing-code.html" class="btn btn-neutral float-right" title="Testing Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="data-for-demos.html" class="btn btn-neutral" title="Including Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Ashish Khanal (US) and Suman Khanal (Nepal).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

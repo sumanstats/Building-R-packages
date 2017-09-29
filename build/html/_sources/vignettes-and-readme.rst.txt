@@ -18,6 +18,7 @@ To add a vignette file, saved within this subdirectory (which will be created if
 
 .. code-block:: r
     :linenos:
+    
     use_vignette("model_details")
     
 You can have more than one vignette per package, which can be useful if you want to include one vignette that gives a more general overview of the package as well as a few vignettes that go into greater detail about particular aspects or applications.

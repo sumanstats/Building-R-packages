@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CRAN checks &mdash; Building R Packages 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Open Source Licensing" href="licensing.html"/>
+        <link rel="prev" title="testthat package" href="testthat-package.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Building R Packages
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="before_start.html">Before You Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-packages.html">R Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_structure.html">Basic Structure of R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description.html">DESCRIPTION file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">NAMESPACE file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes-and-readme.html">Vignettes and Readme files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-markdown.html">Knitr and Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-options.html">Common Knitr options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roxygen2.html">roxygen2 and help files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-for-demos.html">Including Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-packages.html">Data Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-code.html">Testing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testthat-package.html">testthat package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CRAN checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licensing.html">Open Source Licensing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-open.html">Why Open Source?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-to-github.html">Linking local repo to Github repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software-design.html">Software Design and Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crossplat.html">Cross Platform Development</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Building R Packages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>CRAN checks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/passing-cran-checks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cran-checks">
+<h1>CRAN checks<a class="headerlink" href="#cran-checks" title="Permalink to this headline">¶</a></h1>
+<p>Before submitting a package to CRAN, you must pass a battery of tests that are run by the R itself via the R CMD check program. In RStudio, if you are in an R Package “Project” you can run R CMD check by clicking the Check button in the build tab. This will run a series of tests that check the metadata in your package, the NAMESPACE file, the code, the documentation, run any tests, build any vignettes, and many others.</p>
+<p>Here is an example of the output form R CMD check for the filehash package which currently passes all tests.</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">*</span> using R version <span class="m">3.3.2</span> <span class="p">(</span><span class="m">2016-10-31</span><span class="p">)</span>
+<span class="o">*</span> using platform<span class="o">:</span> x86_64<span class="o">-</span>apple<span class="o">-</span>darwin13.4.0 <span class="p">(</span><span class="m">64</span><span class="o">-</span>bit<span class="p">)</span>
+<span class="o">*</span> using session charset<span class="o">:</span> UTF<span class="m">-8</span>
+<span class="o">*</span> checking <span class="kr">for</span> file <span class="s">&#39;filehash/DESCRIPTION&#39;</span> <span class="kc">...</span> OK
+<span class="o">*</span> this is package <span class="s">&#39;filehash&#39;</span> version <span class="s">&#39;2.3&#39;</span>
+<span class="o">*</span> checking package namespace information <span class="kc">...</span> OK
+<span class="o">*</span> checking package dependencies <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">if</span> this is a <span class="kn">source</span> package <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">if</span> there is a namespace <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> executable files <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> hidden files and directories <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> portable file names <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> sufficient<span class="o">/</span>correct file permissions <span class="kc">...</span> OK
+<span class="o">*</span> checking whether package <span class="s">&#39;filehash&#39;</span> can be installed <span class="kc">...</span> OK
+<span class="o">*</span> checking installed package size <span class="kc">...</span> OK
+<span class="o">*</span> checking package directory <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="s">&#39;build&#39;</span> directory <span class="kc">...</span> OK
+<span class="o">*</span> checking DESCRIPTION meta<span class="o">-</span>information <span class="kc">...</span> OK
+<span class="o">*</span> checking top<span class="o">-</span>level files <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> left<span class="o">-</span>over files <span class="kc">...</span> OK
+<span class="o">*</span> checking index information <span class="kc">...</span> OK
+<span class="o">*</span> checking package subdirectories <span class="kc">...</span> OK
+<span class="o">*</span> checking R files <span class="kr">for</span> non<span class="o">-</span>ASCII characters <span class="kc">...</span> OK
+<span class="o">*</span> checking R files <span class="kr">for</span> syntax errors <span class="kc">...</span> OK
+<span class="o">*</span> checking whether the package can be loaded <span class="kc">...</span> OK
+<span class="o">*</span> checking whether the package can be loaded with stated dependencies <span class="kc">...</span> OK
+<span class="o">*</span> checking whether the package can be unloaded cleanly <span class="kc">...</span> OK
+<span class="o">*</span> checking whether the namespace can be loaded with stated dependencies <span class="kc">...</span> OK
+<span class="o">*</span> checking whether the namespace can be unloaded cleanly <span class="kc">...</span> OK
+<span class="o">*</span> checking loading without being on the <span class="kn">library</span> search path <span class="kc">...</span> OK
+<span class="o">*</span> checking dependencies <span class="kr">in</span> R code <span class="kc">...</span> OK
+<span class="o">*</span> checking S3 generic<span class="o">/</span>method consistency <span class="kc">...</span> OK
+<span class="o">*</span> checking replacement functions <span class="kc">...</span> OK
+<span class="o">*</span> checking foreign <span class="kr">function</span> calls <span class="kc">...</span> OK
+<span class="o">*</span> checking R code <span class="kr">for</span> possible problems <span class="kc">...</span> OK
+<span class="o">*</span> checking Rd files <span class="kc">...</span> OK
+<span class="o">*</span> checking Rd metadata <span class="kc">...</span> OK
+<span class="o">*</span> checking Rd cross<span class="o">-</span>references <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> missing documentation entries <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> code<span class="o">/</span>documentation mismatches <span class="kc">...</span> OK
+<span class="o">*</span> checking Rd \usage sections <span class="kc">...</span> OK
+<span class="o">*</span> checking Rd contents <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> unstated dependencies <span class="kr">in</span> examples <span class="kc">...</span> OK
+<span class="o">*</span> checking line endings <span class="kr">in</span> C<span class="o">/</span>C<span class="o">++/</span>Fortran sources<span class="o">/</span>headers <span class="kc">...</span> OK
+<span class="o">*</span> checking compiled code <span class="kc">...</span> OK
+<span class="o">*</span> checking sizes of PDF files under <span class="s">&#39;inst/doc&#39;</span> <span class="kc">...</span> OK
+<span class="o">*</span> checking installed files from <span class="s">&#39;inst/doc&#39;</span> <span class="kc">...</span> OK
+<span class="o">*</span> checking files <span class="kr">in</span> <span class="s">&#39;vignettes&#39;</span> <span class="kc">...</span> OK
+<span class="o">*</span> checking examples <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> unstated dependencies <span class="kr">in</span> <span class="s">&#39;tests&#39;</span> <span class="kc">...</span> OK
+<span class="o">*</span> checking tests <span class="kc">...</span>
+ OK
+<span class="o">*</span> checking <span class="kr">for</span> unstated dependencies <span class="kr">in</span> vignettes <span class="kc">...</span> OK
+<span class="o">*</span> checking package vignettes <span class="kr">in</span> <span class="s">&#39;inst/doc&#39;</span> <span class="kc">...</span> OK
+<span class="o">*</span> checking running R code from vignettes <span class="kc">...</span>
+   <span class="s">&#39;filehash.Rnw&#39;</span> <span class="kc">...</span> OK
+ OK
+<span class="o">*</span> checking re<span class="o">-</span>building of vignette outputs <span class="kc">...</span> OK
+<span class="o">*</span> checking PDF version of manual <span class="kc">...</span> OK
+<span class="o">*</span> DONE
+Status<span class="o">:</span> OK
+</pre></div>
+</td></tr></table></div>
+<p>Here is an example from the mvtsplot package where we’ve deliberately introduced some problems to the package in order to show the check output. Checks that have passed are not shown below.</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">*</span> checking foreign <span class="kr">function</span> calls <span class="kc">...</span> OK
+<span class="o">*</span> checking R code <span class="kr">for</span> possible problems <span class="kc">...</span> NOTE
+drawImage<span class="o">:</span> no visible global <span class="kr">function</span> definition <span class="kr">for</span> <span class="s">&#39;Axis&#39;</span>
+drawImageMargin<span class="o">:</span> no visible global <span class="kr">function</span> definition <span class="kr">for</span> <span class="s">&#39;lm&#39;</span>
+drawImageMargin<span class="o">:</span> no visible global <span class="kr">function</span> definition <span class="kr">for</span> <span class="s">&#39;Axis&#39;</span>
+splineFillIn<span class="o">:</span> no visible global <span class="kr">function</span> definition <span class="kr">for</span> <span class="s">&#39;lm&#39;</span>
+Undefined global functions or variables<span class="o">:</span>
+  Axis lm
+Consider adding
+  importFrom<span class="p">(</span><span class="s">&quot;graphics&quot;</span><span class="p">,</span> <span class="s">&quot;Axis&quot;</span><span class="p">)</span>
+  importFrom<span class="p">(</span><span class="s">&quot;stats&quot;</span><span class="p">,</span> <span class="s">&quot;lm&quot;</span><span class="p">)</span>
+to your NAMESPACE file.
+</pre></div>
+</td></tr></table></div>
+<p>Here, it appears that the functions <code class="docutils literal"><span class="pre">Axis()</span></code> and <code class="docutils literal"><span class="pre">lm()</span></code> are needed by the package but are not available because they are not imported from their respective packages. In this case, R CMD check provides a suggestion of how you can modify the NAMESPACE package, but you are probably better off modifying the roxygen2 documentation in the code file instead.</p>
+<p>Moving on the rest of the checks, we see:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">*</span> checking <span class="kr">for</span> missing documentation entries <span class="kc">...</span> OK
+<span class="o">*</span> checking <span class="kr">for</span> code<span class="o">/</span>documentation mismatches <span class="kc">...</span> WARNING
+Codoc mismatches from documentation object <span class="s">&#39;mvtsplot&#39;</span><span class="o">:</span>
+mvtsplot
+  Code<span class="o">:</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> group <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> xtime <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> norm <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;internal&quot;</span><span class="p">,</span>
+                 <span class="s">&quot;global&quot;</span><span class="p">),</span> levels <span class="o">=</span> <span class="m">3</span><span class="p">,</span> smooth.df <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> margin <span class="o">=</span>
+                 <span class="kc">TRUE</span><span class="p">,</span> sort <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> main <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> palette <span class="o">=</span> <span class="s">&quot;PRGn&quot;</span><span class="p">,</span>
+                 rowstat <span class="o">=</span> <span class="s">&quot;median&quot;</span><span class="p">,</span> xlim<span class="p">,</span> bottom.ylim <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
+                 right.xlim <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> gcol <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+  Docs<span class="o">:</span> <span class="kr">function</span><span class="p">(</span>y<span class="p">,</span> group <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> xtime <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> norm <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;internal&quot;</span><span class="p">,</span>
+                 <span class="s">&quot;global&quot;</span><span class="p">),</span> levels <span class="o">=</span> <span class="m">3</span><span class="p">,</span> smooth.df <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> margin <span class="o">=</span>
+                 <span class="kc">TRUE</span><span class="p">,</span> sort <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> main <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> palette <span class="o">=</span> <span class="s">&quot;PRGn&quot;</span><span class="p">,</span>
+                 rowstat <span class="o">=</span> <span class="s">&quot;median&quot;</span><span class="p">,</span> xlim<span class="p">,</span> bottom.ylim <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
+                 right.xlim <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> gcol <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+  Argument names <span class="kr">in</span> code not <span class="kr">in</span> docs<span class="o">:</span>
+    x
+  Argument names <span class="kr">in</span> docs not <span class="kr">in</span> code<span class="o">:</span>
+    y
+  Mismatches <span class="kr">in</span> argument <span class="kp">names</span><span class="o">:</span>
+    <span class="kp">Position</span><span class="o">:</span> <span class="m">1</span> Code<span class="o">:</span> x Docs<span class="o">:</span> y
+</pre></div>
+</td></tr></table></div>
+<p>Here the problem is that the code has the first argument named x while the documentation has the first argument named y.</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">*</span> checking Rd \usage sections <span class="kc">...</span> WARNING
+Undocumented arguments <span class="kr">in</span> documentation object <span class="s">&#39;mvtsplot&#39;</span>
+  <span class="s">&#39;y&#39;</span>
+Documented arguments not <span class="kr">in</span> \usage <span class="kr">in</span> documentation object <span class="s">&#39;mvtsplot&#39;</span><span class="o">:</span>
+  <span class="s">&#39;x&#39;</span>
+
+Functions with \usage entries need to have the appropriate \alias
+entries<span class="p">,</span> and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter <span class="s">&#39;Writing R documentation files&#39;</span> <span class="kr">in</span> the <span class="s">&#39;Writing R</span>
+<span class="s">Extensions&#39;</span> manual.
+</pre></div>
+</td></tr></table></div>
+<p>Because of the mismatch in code and documentation for the first argument, we have an argument that is not properly documented (y) and an argument that is documented but not used (x).</p>
+<p>In case the checks fly by too quickly, you will receive a summary message the end saying what errors and warnings you got.</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">*</span> DONE
+Status<span class="o">:</span> <span class="m">2</span> WARNINGs<span class="p">,</span> <span class="m">1</span> NOTE
+</pre></div>
+</td></tr></table></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="licensing.html" class="btn btn-neutral float-right" title="Open Source Licensing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="testthat-package.html" class="btn btn-neutral" title="testthat package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Ashish Khanal (US) and Suman Khanal (Nepal).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

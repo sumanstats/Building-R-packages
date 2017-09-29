@@ -23,6 +23,22 @@ Building R Packages
    documentation.rst
    vignettes-and-readme.rst
    knitr-markdown.rst
+   knitr-options.rst
+   roxygen2.rst
+   data-for-demos.rst
+   data-packages.rst
+   testing-code.rst
+   testthat-package.rst
+   passing-cran-checks.rst
+   licensing.rst
+   why-open.rst
+   version-control.rst
+   git.rst
+   local-to-github.rst
+   software-design.rst
+   integration.rst
+   crossplat.rst
+
 
 
 

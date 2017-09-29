@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>testthat package &mdash; Building R Packages 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
+        <link rel="next" title="CRAN checks" href="passing-cran-checks.html"/>
+        <link rel="prev" title="Testing Code" href="testing-code.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Building R Packages
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="before_start.html">Before You Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-packages.html">R Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_structure.html">Basic Structure of R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description.html">DESCRIPTION file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">NAMESPACE file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes-and-readme.html">Vignettes and Readme files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-markdown.html">Knitr and Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-options.html">Common Knitr options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roxygen2.html">roxygen2 and help files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-for-demos.html">Including Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-packages.html">Data Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-code.html">Testing Code</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">testthat package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="passing-cran-checks.html">CRAN checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licensing.html">Open Source Licensing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-open.html">Why Open Source?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-to-github.html">Linking local repo to Github repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software-design.html">Software Design and Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crossplat.html">Cross Platform Development</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Building R Packages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>testthat package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/testthat-package.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testthat-package">
+<h1>testthat package<a class="headerlink" href="#testthat-package" title="Permalink to this headline">¶</a></h1>
+<p>The testthat package is designed to make it easy to setup a battery of tests for your R package. A nice introduction to the package can be found in Hadley Wickham’s <a class="reference external" href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">article</a> in the R Journal. Essentially, the package contains a suite of functions for testing function/expression output with the expected output. The simplest use of the package is for testing a simple expression:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>testthat<span class="p">)</span>
+expect_that<span class="p">(</span><span class="kp">sqrt</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="o">*</span> <span class="kp">sqrt</span><span class="p">(</span><span class="m">3</span><span class="p">),</span> equals<span class="p">(</span><span class="m">3</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that the <code class="docutils literal"><span class="pre">equals()</span></code> function allows for some numerical fuzz, which is why this expression actually passes the test. When a test fails, <code class="docutils literal"><span class="pre">expect_that()</span></code> throws an error and does not return something.</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">## Use a strict test of equality (this test fails)</span>
+expect_that<span class="p">(</span><span class="kp">sqrt</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="o">*</span> <span class="kp">sqrt</span><span class="p">(</span><span class="m">3</span><span class="p">),</span> is_identical_to<span class="p">(</span><span class="m">3</span><span class="p">))</span>
+
+Error<span class="o">:</span> <span class="kp">sqrt</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> <span class="o">*</span> <span class="kp">sqrt</span><span class="p">(</span><span class="m">3</span><span class="p">)</span> not identical to <span class="m">3.</span>
+Objects equal but not <span class="kp">identical</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal"><span class="pre">expect_that()</span></code> function can be used to wrap many different kinds of test, beyond just numerical output. Following list provides a brief summary of the types of comparisons that can be made.</p>
+<dl class="docutils">
+<dt>equals()</dt>
+<dd>check for equality with numerical fuzz</dd>
+<dt>is_identical_to()</dt>
+<dd>strict equality via identical()</dd>
+<dt>is_equivalent_to()</dt>
+<dd>like <code class="docutils literal"><span class="pre">equals()</span></code> but ignores object attributes</dd>
+<dt>is_a()</dt>
+<dd>checks the class of an object (using <code class="docutils literal"><span class="pre">inherits()</span></code>)</dd>
+<dt>matches()</dt>
+<dd>checks that a string matches a regular expression</dd>
+<dt>prints_text()</dt>
+<dd>checks that an expression prints to the console</dd>
+<dt>shows_message()</dt>
+<dd>checks for a message being generated</dd>
+<dt>gives_warning()</dt>
+<dd>checks that an expression gives a warning</dd>
+<dt>throws_error()</dt>
+<dd>checks that an expression (properly) throws an error</dd>
+<dt>is_true()</dt>
+<dd>checks that an expression is TRUE</dd>
+</dl>
+<p>A collection of calls to <code class="docutils literal"><span class="pre">expect_that()</span></code> can be put together with the <code class="docutils literal"><span class="pre">test_that()</span></code> function, as in</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>test_that<span class="p">(</span><span class="s">&quot;model fitting&quot;</span><span class="p">,</span> <span class="p">{</span>
+    data<span class="p">(</span>airquality<span class="p">)</span>
+    fit <span class="o">&lt;-</span> lm<span class="p">(</span>Ozone <span class="o">~</span> Wind<span class="p">,</span> data <span class="o">=</span> airquality<span class="p">)</span>
+    expect_that<span class="p">(</span>fit<span class="p">,</span> is_a<span class="p">(</span><span class="s">&quot;lm&quot;</span><span class="p">))</span>
+    expect_that<span class="p">(</span><span class="m">1</span> <span class="o">+</span> <span class="m">1</span><span class="p">,</span> equals<span class="p">(</span><span class="m">2</span><span class="p">))</span>
+<span class="p">})</span>
+</pre></div>
+</td></tr></table></div>
+<p>Typically, you would put your tests in an R file. If you have multiple sets of tests that test different domains of a package, you might put those <strong>tests in different files</strong>. Individual files can have their tests run with the <code class="docutils literal"><span class="pre">test_file()</span></code> function. A collection of tests files can be placed in a directory and tested all together with the <code class="docutils literal"><span class="pre">test_dir()</span></code> function.</p>
+<p>In the context of an R package, it makes sense to put the test files in the <code class="docutils literal"><span class="pre">tests/</span></code> directory. This way, when running R CMD check (see the next section) all of the tests will be run as part of process of checking the entire package. If any of your tests fail, then the entire package checking process will fail and will prevent you from distributing buggy code. If you want users to be able to easily see the tests from an installed package, you can place the tests in the <code class="docutils literal"><span class="pre">inst/tests</span></code> directory and have a separate file in the tests directory run all of the tests.</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="passing-cran-checks.html" class="btn btn-neutral float-right" title="CRAN checks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="testing-code.html" class="btn btn-neutral" title="Testing Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Ashish Khanal (US) and Suman Khanal (Nepal).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

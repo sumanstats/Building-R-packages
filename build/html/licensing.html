@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Open Source Licensing &mdash; Building R Packages 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Why Open Source?" href="why-open.html"/>
+        <link rel="prev" title="CRAN checks" href="passing-cran-checks.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Building R Packages
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="before_start.html">Before You Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-packages.html">R Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_structure.html">Basic Structure of R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description.html">DESCRIPTION file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">NAMESPACE file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes-and-readme.html">Vignettes and Readme files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-markdown.html">Knitr and Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-options.html">Common Knitr options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roxygen2.html">roxygen2 and help files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-for-demos.html">Including Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-packages.html">Data Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-code.html">Testing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testthat-package.html">testthat package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="passing-cran-checks.html">CRAN checks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Open Source Licensing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-general-public-license">The General Public License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-mit-license">The MIT License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-cc0-license">The CC0 License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="why-open.html">Why Open Source?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-to-github.html">Linking local repo to Github repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software-design.html">Software Design and Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crossplat.html">Cross Platform Development</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Building R Packages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Open Source Licensing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/licensing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="open-source-licensing">
+<h1>Open Source Licensing<a class="headerlink" href="#open-source-licensing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>You can specify how your R package is licensed in the package DESCRIPTION file under the License: section. How you license your R package is important because it provides a set of constraints for how other R developers use your code. If you’re writing an R package to be used internally in your company then your company may choose to not share the package. In this case licensing your R package is less important since the package belongs to your company. In your package DESCRIPTION you can specify License: file LICENSE, and then create a text file called LICENSE which explains that your company reserves all rights to the package.</p>
+<p>However if you (or your company) would like to publicly share your R package you should consider open source licensing. The philosophy of open source revolves around three principles:</p>
+<ul class="simple">
+<li>The source code of the software can be inspected.</li>
+<li>The source code of the software can be modified.</li>
+<li>Modified versions of the software can be redistributed.</li>
+</ul>
+<p>Nearly all open source licenses provide the protections above. Let’s discuss three of the most popular open source licenses among R packages.</p>
+</div>
+<div class="section" id="the-general-public-license">
+<h2>The General Public License<a class="headerlink" href="#the-general-public-license" title="Permalink to this headline">¶</a></h2>
+<p>Known as the GPL, the GNU GPL, and GPL-3, the General Public License was originally written by Richard Stallman. The GPL is known as a copyleft license, meaning that any software that is bundled with or originates from software licensed under the GPL must also be released under the GPL. The exacting meaning of “bundle” will depend a bit on the circumstances. For example, software distributed with an operating system can be licensed under different licenses even if the operating system itself is licensed under the GPL. You can use the GPL-3 as the license for your R package by specifying <strong>License: GPL-3</strong> in the DESCRIPTION file.</p>
+<p>It is worth noting that R itself is licensed under version 2 of the GPL, or GPL-2, which is an earlier version of this license.</p>
+</div>
+<div class="section" id="the-mit-license">
+<h2>The MIT License<a class="headerlink" href="#the-mit-license" title="Permalink to this headline">¶</a></h2>
+<p>The MIT license is a more permissive license compared to the GPL. MIT licensed software can be modified or incorporated into software that is not open source. The MIT license protects the copyright holder from legal liability that might be incurred from using the software. When using the MIT license in a R package you should specify <strong>License: MIT + file LICENSE</strong> in the DESCRIPTION file. You should then add a file called <code class="docutils literal"><span class="pre">LICENSE</span></code> to your package which uses the following template exactly:</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>YEAR: [The current year]
+COPYRIGHT HOLDER: [Your name or your organization&#39;s name]
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="the-cc0-license">
+<h2>The CC0 License<a class="headerlink" href="#the-cc0-license" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://creativecommons.org/">Creative Commons</a> licenses are usually used for artistic and creative works, however the CC0 license is also appropriate for software. The CC0 license dedicates your R package to the public domain, which means that you give up all copyright claims to your R package. The CC0 license allows your software to join other great works like Pride and Prejudice, The Adventures of Huckleberry Finn, and The Scarlet Letter in the public domain. You can use the CC0 license for your R package by specifying <strong>License: CC0</strong> in the DESCRIPTION file.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="why-open.html" class="btn btn-neutral float-right" title="Why Open Source?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="passing-cran-checks.html" class="btn btn-neutral" title="CRAN checks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Ashish Khanal (US) and Suman Khanal (Nepal).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

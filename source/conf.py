@@ -32,7 +32,7 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.mathjax',
-    'sphinx.ext.githubpages']
+    'sphinx.ext.githubpages','sphinx.ext.graphviz']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -48,8 +48,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Building R Packages'
-copyright = '2017, Suman Khanal and Ashish Khanal'
-author = 'Suman Khanal and Ashish Khanal'
+copyright = '2017, Ashish Khanal (US) and Suman Khanal (Nepal)'
+author = 'Ashish Khanal (US) and Suman Khanal (Nepal)'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -77,6 +77,8 @@ pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
+
+
 
 
 # -- Options for HTML output ----------------------------------------------
@@ -144,7 +146,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'BuildingRPackages.tex', 'Building R Packages Documentation',
-     'Suman Khanal and Ashish Khanal', 'manual'),
+     'Ashish Khanal (US) and Suman Khanal (Nepal)', 'manual'),
 ]
 
 

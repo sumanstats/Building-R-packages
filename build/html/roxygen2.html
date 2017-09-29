@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>roxygen2 and help files &mdash; Building R Packages 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Including Data" href="data-for-demos.html"/>
+        <link rel="prev" title="Common Knitr options" href="knitr-options.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Building R Packages
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="before_start.html">Before You Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-packages.html">R Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_structure.html">Basic Structure of R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description.html">DESCRIPTION file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">NAMESPACE file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes-and-readme.html">Vignettes and Readme files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-markdown.html">Knitr and Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-options.html">Common Knitr options</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">roxygen2 and help files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#common-roxygen2-tags">Common roxygen2 tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#including-data-in-a-package">Including data in a package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data-for-demos.html">Including Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-packages.html">Data Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-code.html">Testing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testthat-package.html">testthat package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="passing-cran-checks.html">CRAN checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licensing.html">Open Source Licensing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-open.html">Why Open Source?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-to-github.html">Linking local repo to Github repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software-design.html">Software Design and Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crossplat.html">Cross Platform Development</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Building R Packages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>roxygen2 and help files</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/roxygen2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="roxygen2-and-help-files">
+<h1>roxygen2 and help files<a class="headerlink" href="#roxygen2-and-help-files" title="Permalink to this headline">¶</a></h1>
+<p>In addition to writing tutorials that give an overview of your whole package, you should also write specific documentation showing users how to use and interpret any functions you expect users to directly call.</p>
+<p>These help files will ultimately go in a folder called /man of your package, in an R documentation format (<code class="docutils literal"><span class="pre">.Rd</span></code> file extensions) that is fairly similar to LaTex. You used to have to write all of these files as separate files. However, the <code class="docutils literal"><span class="pre">roxygen2</span></code> package lets you put all of the help information directly in the code where you define each function.</p>
+<p>With <code class="docutils literal"><span class="pre">roxygen2</span></code>, you add the help file information directly above the code where you define each functions, in the R scripts saved in the R subdirectory of the package directory. You start each line of the <code class="docutils literal"><span class="pre">roxygen2</span></code> documentation with # ‘ (the second character is an apostrophe, not a backtick).</p>
+<p>The <strong>first line</strong> of the documentation should give a short title for the function, and the <strong>next block</strong> of documentation should be a longer description. After that, you will use tags that start with <code class="docutils literal"><span class="pre">&#64;</span></code> to define each element you’re including. You should <strong>leave an empty line</strong> between each section of documentation, and you can use indentation for second and later lines of elements to make the code easier to read.</p>
+<p>Here is a basic example of how this <code class="docutils literal"><span class="pre">roxygen2</span></code> documentation would look for a simple “Hello world” function:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#&#39; Print &quot;Hello world&quot;</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; This is a simple function that, by default, prints &quot;Hello world&quot;. You can</span>
+<span class="c1">#&#39; customize the text to print (using the \code{to_print} argument) and add</span>
+<span class="c1">#&#39; an exclamation point (\code{excited = TRUE}).</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; @param to_print A character string giving the text the function will print</span>
+<span class="c1">#&#39; @param excited Logical value specifying whether to include an exclamation</span>
+<span class="c1">#&#39;    point after the text</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; @return This function returns a phrase to print, with or without an</span>
+<span class="c1">#&#39;    exclamation point added. As a side effect, this function also prints out</span>
+<span class="c1">#&#39;    the phrase.</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; @examples</span>
+<span class="c1">#&#39; hello_world()</span>
+<span class="c1">#&#39; hello_world(excited = TRUE)</span>
+<span class="c1">#&#39; hello_world(to_print = &quot;Hi world&quot;)</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; @export</span>
+hello_world <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>to_print <span class="o">=</span> <span class="s">&quot;Hello world&quot;</span><span class="p">,</span> excited <span class="o">=</span> <span class="kc">FALSE</span><span class="p">){</span>
+    <span class="kr">if</span><span class="p">(</span>excited<span class="p">)</span> to_print <span class="o">&lt;-</span> <span class="kp">paste0</span><span class="p">(</span>to_print<span class="p">,</span> <span class="s">&quot;!&quot;</span><span class="p">)</span>
+    <span class="kp">print</span><span class="p">(</span>to_print<span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="common-roxygen2-tags">
+<h2>Common roxygen2 tags<a class="headerlink" href="#common-roxygen2-tags" title="Permalink to this headline">¶</a></h2>
+<p>Here are some of the common roxygen2 tags to use in creating this documentation: <a class="reference external" href="https://bookdown.org/rdpeng/RProgDA/documentation.html#common-roxygen2-tags">Table of common roxygen2 tags</a>.</p>
+<p>Here are a few things to keep in mind when writing help files using roxygen2:</p>
+<p>The tags <code class="docutils literal"><span class="pre">&#64;example</span></code> and <code class="docutils literal"><span class="pre">&#64;examples</span></code> do different things. You should always use the <code class="docutils literal"><span class="pre">&#64;examples</span></code> <strong>(plural)</strong> tag for example code, or you will get errors when you build the documentation.</p>
+<p>The <code class="docutils literal"><span class="pre">&#64;inheritParams</span></code> function can save you a lot of time, because if you are using the same parameters in multiple functions in your package, you can write and edit those parameter descriptions just in one place. However, keep in mind that you must point <code class="docutils literal"><span class="pre">&#64;inheritParams</span></code> to the function where you originally define the parameters using <code class="docutils literal"><span class="pre">&#64;param</span></code>, not another function where you use the parameters but define them using an <code class="docutils literal"><span class="pre">&#64;inheritParams</span></code> pointer.</p>
+<p>If you want users to be able to directly use the function, you must include <code class="docutils literal"><span class="pre">&#64;export</span></code> in your roxygen2 documentation. If you have written a function but then find it isn’t being found when you try to compile a README file or vignette, a common culprit is that you have forgotten to export the function.</p>
+<p>You can include formatting (lists, etc.) and equations in the roxygen2 documentation. Here are some of the common formatting tags you might want to use: <a class="reference external" href="https://bookdown.org/rdpeng/RProgDA/documentation.html#common-roxygen2-formatting-tags">Table of common roxygen2 formatting tags</a>.</p>
+<p>Some tips on using the R documentation format:</p>
+<ul class="simple">
+<li>Usually, you’ll want you use the <code class="docutils literal"><span class="pre">\link</span></code> tag only in combination with the <code class="docutils literal"><span class="pre">\code</span></code> tag, since you’re linking to another R function. Make sure you use these with <code class="docutils literal"><span class="pre">\code</span></code> wrapping <code class="docutils literal"><span class="pre">\link</span></code>, not the other way around (<code class="docutils literal"><span class="pre">\code{\link{other_function}}</span></code>), or you’ll get an error.</li>
+<li>Some of the equation formatting, including superscripts and subscripts, won’t parse in Markdown-based documentation (but will for pdf-based documentation). With the <code class="docutils literal"><span class="pre">\eqn</span></code> and <code class="docutils literal"><span class="pre">\deqn</span></code> tags, you can include two versions of an equation, one with full formatting, which will be fully compiled by pdf-based documentation, and one with a reduced form that looks better in Markdown-based documentation (for example, <code class="docutils literal"><span class="pre">\deqn{</span> <span class="pre">\frac{X^2}{Y}</span> <span class="pre">}{</span> <span class="pre">X2</span> <span class="pre">/</span> <span class="pre">Y</span> <span class="pre">}</span></code>).</li>
+<li>For any examples in help files that take a while to run, you’ll want to wrap the example code in the <code class="docutils literal"><span class="pre">\dontrun</span></code> tag.</li>
+<li>The tags <code class="docutils literal"><span class="pre">\url</span></code> and <code class="docutils literal"><span class="pre">\href</span></code> both include a web link. The difference between the two is that <code class="docutils literal"><span class="pre">\url</span></code> will print out the web address in the help documentation, <code class="docutils literal"><span class="pre">\href</span></code> allows you to use text other than the web address for the anchor text of the link. For example: <code class="docutils literal"><span class="pre">&quot;For</span> <span class="pre">more</span> <span class="pre">information,</span> <span class="pre">see</span> <span class="pre">\url{www.google.com}.&quot;</span></code>; <code class="docutils literal"><span class="pre">&quot;For</span> <span class="pre">more</span> <span class="pre">information,</span> <span class="pre">\href{www.google.com}{Google</span> <span class="pre">it}.&quot;</span></code>.</li>
+</ul>
+<p>In addition to document functions, you should <strong>also document any data</strong> that comes with your package. To do that, create a file in the /R folder of the package called “<code class="docutils literal"><span class="pre">data.R</span></code>” to use to documentation all of the package’s datasets. You can use <code class="docutils literal"><span class="pre">roxygen2</span></code> to document each dataset, and end each with the name of the dataset in quotation marks. There are more details on documenting package data using <code class="docutils literal"><span class="pre">roxygen2</span></code> in the next section.</p>
+</div>
+<div class="section" id="including-data-in-a-package">
+<h2>Including data in a package<a class="headerlink" href="#including-data-in-a-package" title="Permalink to this headline">¶</a></h2>
+<p>Many R packages are designed to manipulate, visualize, and model data so it may be a good idea for you to include some data in your package. The primary reason most developers include data in their package is to demonstrate how to use the functions included in the package with the included data. Creating a package as a means to distribute data is also a method that is gaining popularity. Additionally you may want to include data that your package uses internally, but is not available to somebody who is using your package. When including data in your package consider the fact that your <strong>compressed package file should be smaller than 5MB</strong>, which is the largest package size that CRAN allows. If your package is larger than 5MB make sure to inform users in the instructions for downloading and installing your package.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data-for-demos.html" class="btn btn-neutral float-right" title="Including Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="knitr-options.html" class="btn btn-neutral" title="Common Knitr options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Ashish Khanal (US) and Suman Khanal (Nepal).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

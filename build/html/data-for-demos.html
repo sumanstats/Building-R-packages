@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Including Data &mdash; Building R Packages 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Data Packages" href="data-packages.html"/>
+        <link rel="prev" title="roxygen2 and help files" href="roxygen2.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Building R Packages
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="before_start.html">Before You Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-packages.html">R Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_structure.html">Basic Structure of R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description.html">DESCRIPTION file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">NAMESPACE file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes-and-readme.html">Vignettes and Readme files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-markdown.html">Knitr and Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-options.html">Common Knitr options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roxygen2.html">roxygen2 and help files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Including Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-objects">Data Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raw-data">Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#internal-data">Internal Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data-packages.html">Data Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-code.html">Testing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testthat-package.html">testthat package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="passing-cran-checks.html">CRAN checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licensing.html">Open Source Licensing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-open.html">Why Open Source?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-to-github.html">Linking local repo to Github repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software-design.html">Software Design and Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crossplat.html">Cross Platform Development</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Building R Packages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Including Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/data-for-demos.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="including-data">
+<h1>Including Data<a class="headerlink" href="#including-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-objects">
+<h2>Data Objects<a class="headerlink" href="#data-objects" title="Permalink to this headline">¶</a></h2>
+<p>Including data in your package is easy thanks to the devtools package. To include datasets in a package, first create the objects that you would like to include in your package inside of the global environment. You can include any R object in a package, not just data frames. Then make sure you’re in your package directory and use the <code class="docutils literal"><span class="pre">use_data()</span></code> function, listing each object that you want to include in your package. The names of the objects that you pass as arguments to <code class="docutils literal"><span class="pre">use_data()</span></code> will be the names of the objects when a user loads the package, so make sure you like the variable names that you’re using.</p>
+<p>You should then document each data object that you’re including in the package. This way package users can use common R help syntax like <code class="docutils literal"><span class="pre">?dataset</span></code> to find out more information about the included data set. You should create one R file called <code class="docutils literal"><span class="pre">data.R</span></code> in the R/ directory of your package. You can write the data documentation in the <code class="docutils literal"><span class="pre">data.R</span></code> file. Let’s take a look at some documentation examples from the minimap package. First we’ll look at the documentation for a data frame called maple:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#&#39; Production and farm value of maple products in Canada</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; @source Statistics Canada. Table 001-0008 - Production and farm value of</span>
+<span class="c1">#&#39;  maple products, annual. \url{http://www5.statcan.gc.ca/cansim/}</span>
+<span class="c1">#&#39; @format A data frame with columns:</span>
+<span class="c1">#&#39; \describe{</span>
+<span class="c1">#&#39;  \item{Year}{A value between 1924 and 2015.}</span>
+<span class="c1">#&#39;  \item{Syrup}{Maple products expressed as syrup, total in thousands of gallons.}</span>
+<span class="c1">#&#39;  \item{CAD}{Gross value of maple products in thousands of Canadian dollars.}</span>
+<span class="c1">#&#39;  \item{Region}{Postal code abbreviation for territory or province.}</span>
+<span class="c1">#&#39; }</span>
+<span class="c1">#&#39; @examples</span>
+<span class="c1">#&#39; \dontrun{</span>
+<span class="c1">#&#39;  maple</span>
+<span class="c1">#&#39; }</span>
+<span class="s">&quot;maple&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Data frames that you include in your package should follow the general schema above where the documentation page has the following attributes:</p>
+<ul class="simple">
+<li>An informative title describing the object.</li>
+<li>A <code class="docutils literal"><span class="pre">&#64;source</span></code> tag describing where the data was found.</li>
+<li>A <code class="docutils literal"><span class="pre">&#64;format</span></code> tag which describes the data in each column of the data frame.</li>
+<li>And then finally a string with the name of the object.</li>
+</ul>
+<p>The minimap package also includes a few vectors. Let’s look at the documentation for <code class="docutils literal"><span class="pre">mexico_abb</span></code>:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#&#39; Postal Abbreviations for Mexico</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; @examples</span>
+<span class="c1">#&#39; \dontrun{</span>
+<span class="c1">#&#39;  mexico_abb</span>
+<span class="c1">#&#39; }</span>
+<span class="s">&quot;mexico_abb&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>You should always include a title for a description of a vector or any other object. If you need to elaborate on the details of a vector you can include a description in the documentation or a <code class="docutils literal"><span class="pre">&#64;source</span></code> tag. Just like with data frames the documentation for a vector should end with a <strong>string containing the name of the object</strong>.</p>
+</div>
+<div class="section" id="raw-data">
+<h2>Raw Data<a class="headerlink" href="#raw-data" title="Permalink to this headline">¶</a></h2>
+<p>A common task for R packages is to take raw data from files and to import them into R objects so that they can be analyzed. You might want to include some sample raw data files so you can show different methods and options for importing the data. To include raw data files in your package you should create a directory under <code class="docutils literal"><span class="pre">inst/extdata</span></code> in your R package. If you stored a data file in this directory called <code class="docutils literal"><span class="pre">response.json</span></code> in <code class="docutils literal"><span class="pre">inst/extdata</span></code> and your package is named mypackage then a user could access the path to this file with <code class="docutils literal"><span class="pre">system.file(&quot;extdata&quot;,</span> <span class="pre">&quot;response.json&quot;,</span> <span class="pre">package</span> <span class="pre">=</span> <span class="pre">&quot;mypackage&quot;)</span></code>. Include that line of code in the documentation to your package so that your users know how to access the raw data file.</p>
+</div>
+<div class="section" id="internal-data">
+<h2>Internal Data<a class="headerlink" href="#internal-data" title="Permalink to this headline">¶</a></h2>
+<p>Functions in your package may need to have access to data that you don’t want your users to be able to access. For example the <strong>swirl</strong> package contains translations for menu items into languages other than English, however that data has nothing to do with the purpose of the swirl package and so it’s hidden from the user. To add internal data to your package you can use the <code class="docutils literal"><span class="pre">use_data()</span></code> function from devtools, however you must specify the <code class="docutils literal"><span class="pre">internal</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> argument. All of the objects you pass to <code class="docutils literal"><span class="pre">use_data(...,</span> <span class="pre">internal</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> can be referenced by the same name within your R package. All of these objects will be saved to one file called <code class="docutils literal"><span class="pre">R/sysdata.rda</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data-packages.html" class="btn btn-neutral float-right" title="Data Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="roxygen2.html" class="btn btn-neutral" title="roxygen2 and help files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Ashish Khanal (US) and Suman Khanal (Nepal).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

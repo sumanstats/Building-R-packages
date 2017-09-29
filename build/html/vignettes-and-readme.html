@@ -36,7 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
-        <link rel="next" title="&lt;no title&gt;" href="knitr-markdown.html"/>
+        <link rel="next" title="Knitr and Markdown" href="knitr-markdown.html"/>
         <link rel="prev" title="Documentation" href="documentation.html"/> 
 
   
@@ -104,6 +104,22 @@
 <li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Vignettes and Readme files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-markdown.html">Knitr and Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-options.html">Common Knitr options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roxygen2.html">roxygen2 and help files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-for-demos.html">Including Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-packages.html">Data Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-code.html">Testing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testthat-package.html">testthat package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="passing-cran-checks.html">CRAN checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licensing.html">Open Source Licensing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-open.html">Why Open Source?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-to-github.html">Linking local repo to Github repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software-design.html">Software Design and Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crossplat.html">Cross Platform Development</a></li>
 </ul>
 
             
@@ -178,6 +194,9 @@
 <p>If the README file does not need to include R code, you can write it directly as an .md file, using Markdown syntax, which is explained in more detail in the next section. If you want to include R code, you should start with a README.Rmd file, which you can then render to Markdown using knitr. You can use the <code class="docutils literal"><span class="pre">devtools</span></code> package to add either a README.md or README.Rmd file to a package directory, using <code class="docutils literal"><span class="pre">use_readme_md</span></code> or <code class="docutils literal"><span class="pre">use_readme_rmd</span></code>, respectively. These functions will add the appropriate file to the top level of the package directory and will also add the file name to “.Rbuildignore”, since having one of these files in the top level of the package directory could otherwise cause some problems when building the package.</p>
 <p>The README file is a useful way to give GitHub users information about your package, but it will not be included in builds of the package or be available through CRAN for packages that are posted there. Instead, if you want to create tutorials or overview documents that are included in a package build, you should do that by adding one or more package vignettes. Vignettes are stored in a <code class="docutils literal"><span class="pre">vignettes</span></code> subdirectory within the package directory.</p>
 <p>To add a vignette file, saved within this subdirectory (which will be created if you do not already have it), use the <code class="docutils literal"><span class="pre">use_vignette</span></code> function from devtools. This function takes as arguments the file name of the vignette you’d like to create and the package for which you’d like to create it (the default is the package in the current working directory). For example, if you are currently working in your package’s top-level directory and you would like to add a vignette called “model_details”, you can do that with the code:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>use_vignette<span class="p">(</span><span class="s">&quot;model_details&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
 <p>You can have more than one vignette per package, which can be useful if you want to include one vignette that gives a more general overview of the package as well as a few vignettes that go into greater detail about particular aspects or applications.</p>
 <p>Once you create a vignette with <code class="docutils literal"><span class="pre">use_vignette</span></code>, be sure to update the Vignette Index Entry in the <code class="docutils literal"><span class="pre">vignette's</span> <span class="pre">YAML</span></code> (the code at the top of an R Markdown document). Replace “Vignette Title” there with the actual title you use for the vignette.</p>
 </div>
@@ -192,7 +211,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="knitr-markdown.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="knitr-markdown.html" class="btn btn-neutral float-right" title="Knitr and Markdown" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="documentation.html" class="btn btn-neutral" title="Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -204,7 +223,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Suman Khanal and Ashish Khanal.
+        &copy; Copyright 2017, Ashish Khanal (US) and Suman Khanal (Nepal).
 
     </p>
   </div>

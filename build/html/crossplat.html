@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cross Platform Development &mdash; Building R Packages 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Continuous Integration" href="integration.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Building R Packages
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="before_start.html">Before You Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-packages.html">R Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_structure.html">Basic Structure of R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description.html">DESCRIPTION file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">NAMESPACE file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes-and-readme.html">Vignettes and Readme files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-markdown.html">Knitr and Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knitr-options.html">Common Knitr options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roxygen2.html">roxygen2 and help files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-for-demos.html">Including Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-packages.html">Data Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-code.html">Testing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testthat-package.html">testthat package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="passing-cran-checks.html">CRAN checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licensing.html">Open Source Licensing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-open.html">Why Open Source?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-to-github.html">Linking local repo to Github repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software-design.html">Software Design and Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Continuous Integration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cross Platform Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handling-paths">Handling paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-files-rappdirs">Saving Files &amp; rappdirs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rappdirs">rappdirs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#options-and-starting-r">Options and Starting R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-installation">Package Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environmental-attributes">Environmental Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Building R Packages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Cross Platform Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/crossplat.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cross-platform-development">
+<h1>Cross Platform Development<a class="headerlink" href="#cross-platform-development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>One of the great features about R is that you can run R code on multiple kinds of computers and operating systems and it will behave the same way on each one. Most of time you don’t need to worry about what platform your R code is running on. The following sections discuss strategies and functions that you should use to ensure that your R code runs uniformly on every kind of system.</p>
+</div>
+<div class="section" id="handling-paths">
+<h2>Handling paths<a class="headerlink" href="#handling-paths" title="Permalink to this headline">¶</a></h2>
+<p>Paths to files and folders can have big differences between operating systems. In general you should avoid constructing a path “by hand.” For example if I wanted to access a file called <code class="docutils literal"><span class="pre">data.txt</span></code> that I know will be located on the user’s desktop using the string <code class="docutils literal"><span class="pre">&quot;~/Desktop/data.txt&quot;</span></code> would not work if that code was run on a Windows machine. In general you should always use functions to construct and find paths to files and folders. The correct programmatic way to construct the path above is to use the <code class="docutils literal"><span class="pre">file.path()</span></code> function. So to get the file above I would do the following:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kp">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="s">&quot;Desktop&quot;</span><span class="p">,</span> <span class="s">&quot;data.txt&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;~/Desktop/data.txt&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that this book is probably being built on a Mac:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kp">Sys.info</span><span class="p">()[</span><span class="s">&#39;sysname&#39;</span><span class="p">]</span>
+  sysname
+<span class="s">&quot;Darwin&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>If the resulting line above says “Darwin” it’s refering to the core of macOS. If you don’t have a Mac try running both lines of code above to see the resulting path and the type of system that you’re running.</p>
+<p>In general it’s not guaranteed on any system that a particular file or folder you’ve looking for will exist - however if the user of your package has installed your package you can be sure that any files within your package exist on their machine. You can find the path to files included in your package using the <code class="docutils literal"><span class="pre">system.file()</span></code> function. Any files or folders in the <code class="docutils literal"><span class="pre">inst/</span></code> directory of your package will be copied one level up once your package is installed. If your package is called ggplyr2 and there’s file in your package under inst/data/first.txt you can get the path to that file with system.file(“data”, “first.txt”, package = “ggplyr2”). Packaging files with your package is the best way to ensure that users have access to them when they’re using your package.</p>
+<p>In terms of constructing paths there are a few other functions you should be aware of.
+Remeber that the results for many of these functions are contingent on this book being built on a Mac, so if you’re using Windows I encourage you to run these functions yourself to see their result. The <code class="docutils literal"><span class="pre">path.expand()</span></code> function is usually used to find the absolute path name of a user’s home directory when the tilde (~) is inlcuded in the path. The tilde is a shortcut for the path to the current user’s home directory. Let’s take a look at <code class="docutils literal"><span class="pre">path.expand()</span></code> in action:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kp">path.expand</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Users/ashish&quot;</span>
+<span class="kp">path.expand</span><span class="p">(</span><span class="kp">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="s">&quot;Desktop&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Users/ashish/Desktop&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal"><span class="pre">normalizePath()</span></code> function is built on top of <code class="docutils literal"><span class="pre">path.expand()</span></code>, so it includes path.expand()’s features but it also creates full paths for other shortcuts like “.” which signifies the current working directory and “..” which signifies the directory above the current working directory. Let’s take a look at some examples:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kp">normalizePath</span><span class="p">(</span><span class="kp">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="s">&quot;R&quot;</span><span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Users/ashish/R&quot;</span>
+<span class="kp">normalizePath</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Users/ashish/books/msdr&quot;</span>
+<span class="kp">normalizePath</span><span class="p">(</span><span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Users/ashish/books&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>To extract parts of a path you can use the basename() function to get the name of the file or the deepest directory in the path and you can use dirname() to get the part of the path that does not include either the file or the deepest directory. Let’s take a look at some examples:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>data_file <span class="o">&lt;-</span> <span class="kp">normalizePath</span><span class="p">(</span><span class="kp">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="s">&quot;data.txt&quot;</span><span class="p">))</span>
+data_file
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Users/ashish/data.txt&quot;</span>
+<span class="kp">dirname</span><span class="p">(</span>data_file<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Users/ashish&quot;</span>
+<span class="kp">dirname</span><span class="p">(</span><span class="kp">dirname</span><span class="p">(</span>data_file<span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Users&quot;</span>
+<span class="kp">basename</span><span class="p">(</span>data_file<span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;data.txt&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="saving-files-rappdirs">
+<h2>Saving Files &amp; rappdirs<a class="headerlink" href="#saving-files-rappdirs" title="Permalink to this headline">¶</a></h2>
+<p>CRAN’s policy for R packages contains the following statement:</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Packages should not write in the users&#39; home filespace, nor anywhere else on the file system apart from the R session&#39;s
+temporary directory (or during installation in the location pointed to by TMPDIR: and such usage should be cleaned up).
+Installing into the system&#39;s R installation (e.g., scripts to its bin directory) is not allowed.
+Limited exceptions may be allowed in interactive sessions if the package obtains confirmation from the user.
+</pre></div>
+</td></tr></table></div>
+<p>In general you should strive to get the user’s consent before you create or save files on their computer. With some functions consent is implicit, for example it’s clear somebody using <code class="docutils literal"><span class="pre">write.csv()</span></code> consents to producing a csv file at a specified path. When it’s not absolutely clear that the user will be creating a file or folder when they use your functions you should ask them specifically. Take a look at the code below for a skeleton of a function that asks for a user’s consent:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#&#39; A function for doing something</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; This function takes some action. It also attempts to create a file on your</span>
+<span class="c1">#&#39; desktop called \code{data.txt}. If \code{data.txt} cannot be created a</span>
+<span class="c1">#&#39; warning is raised.</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; @param force If set to \code{TRUE}, \code{data.txt} will be created on the</span>
+<span class="c1">#&#39; user&#39;s Desktop if their Desktop exists. If this function is used in an</span>
+<span class="c1">#&#39; interactive session the user will be asked whether or not \code{data.txt}</span>
+<span class="c1">#&#39; should be created. The default value is \code{FALSE}.</span>
+<span class="c1">#&#39;</span>
+<span class="c1">#&#39; @export</span>
+some_function <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>force <span class="o">=</span> <span class="kc">FALSE</span><span class="p">){</span>
+
+  <span class="c1">#</span>
+  <span class="c1"># ... some code that does something useful ...</span>
+  <span class="c1">#</span>
+
+  <span class="kr">if</span><span class="p">(</span><span class="o">!</span>dir.exists<span class="p">(</span><span class="kp">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="s">&quot;Desktop&quot;</span><span class="p">))){</span>
+    <span class="kp">warning</span><span class="p">(</span><span class="s">&quot;No Desktop found.&quot;</span><span class="p">)</span>
+  <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+    <span class="kr">if</span><span class="p">(</span><span class="o">!</span>force <span class="o">&amp;&amp;</span> <span class="kp">interactive</span><span class="p">()){</span>
+      result <span class="o">&lt;-</span> select.list<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="s">&quot;No&quot;</span><span class="p">),</span>
+                  title <span class="o">=</span> <span class="s">&quot;May this program create data.txt on your desktop?&quot;</span><span class="p">)</span>
+      <span class="kr">if</span><span class="p">(</span>result <span class="o">==</span> <span class="s">&quot;Yes&quot;</span><span class="p">){</span>
+        <span class="kp">file.create</span><span class="p">(</span><span class="kp">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="s">&quot;Desktop&quot;</span><span class="p">,</span> <span class="s">&quot;data.txt&quot;</span><span class="p">))</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span><span class="p">(</span><span class="kp">force</span><span class="p">){</span>
+      <span class="kp">file.create</span><span class="p">(</span><span class="kp">file.path</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">,</span> <span class="s">&quot;Desktop&quot;</span><span class="p">,</span> <span class="s">&quot;data.txt&quot;</span><span class="p">))</span>
+    <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+      <span class="kp">warning</span><span class="p">(</span><span class="s">&quot;data.txt was not created on the Desktop.&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal"><span class="pre">some_function()</span></code> function above is a contrived example of how to ask for permission from the user to create a file on their hard drive. Notice that the description of the function clearly states that the function attempts to create the data.txt file. This function has a force argument which will create the data.txt file without asking the user first. By setting force = FALSE as the default, the user must set force = TRUE, which is one method to get consent from the user. The function above uses the <code class="docutils literal"><span class="pre">interactive()</span></code> function in order to determine whether the user is using this function in an R console or if this function is being run in a non-interactive session. If the user is in an interactive R session then using select.list() is a decent method to ask the user a question. You should strive to use <code class="docutils literal"><span class="pre">select.list()</span></code> and <code class="docutils literal"><span class="pre">interactive()</span></code> together in order to prevent an R session from waiting for input from a user that doesn’t exist.</p>
+</div>
+<div class="section" id="rappdirs">
+<h2>rappdirs<a class="headerlink" href="#rappdirs" title="Permalink to this headline">¶</a></h2>
+<p>Even the contrived example above implicitly raises a good question: where should your package save files? The most obvious answer is to allow the user to provide an argument for the path where a file should be saved. This is a good idea as long as your package won’t need to depend on the location of that file in the future, for example if your package is creating an output data file. But what if you need persistent and consistent access to a file? You might be tempted to use <code class="docutils literal"><span class="pre">path.package()</span></code> in order to find the directory that your package is installed in so you can store files there. This isn’t a good idea because file access permissions often do not allow users to modify files where R packages are stored.</p>
+<p>In order to find a location where you can read and write files that will persist on a user’s computer you should use the rappdirs package. This package contains functions that will return paths to directories where you package can store files for future use. The <code class="docutils literal"><span class="pre">user_data_dir()</span></code> function will provide a user-specific path for your package, while the <code class="docutils literal"><span class="pre">site_data_dir()</span></code> function will return a directory path that is shared by all users. Let’s take a look at rappdirs in action:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>rappdirs<span class="p">)</span>
+Loading required package<span class="o">:</span> methods
+site_data_dir<span class="p">(</span>appname <span class="o">=</span> <span class="s">&quot;ggplyr2&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Library/Application Support/ggplyr2&quot;</span>
+user_data_dir<span class="p">(</span>appname <span class="o">=</span> <span class="s">&quot;ggplyr2&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;/Users/ashish/Library/Application Support/ggplyr2&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Both of the examples above are probably the Mac-specific paths. We can get the Windows specific paths by specifying the os argument:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>user_data_dir<span class="p">(</span>appname <span class="o">=</span> <span class="s">&quot;ggplyr2&quot;</span><span class="p">,</span> os <span class="o">=</span> <span class="s">&quot;win&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;C:/Users/&lt;username&gt;/Local/ggplyr2/ggplyr2&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>If you don’t supply the os argument then the function will determine the operating system automatically. One feature about <code class="docutils literal"><span class="pre">user_data_dir()</span></code> you should note is the roaming = TRUE argument. Many Windows networks are configured so that any authorized user can log in to any computer on the network and have access to their desktop, settings, and files. Setting roaming = TRUE returns a special path so that R will have access to your packages files everywhere, but this requires the directory to be synced often. Make sure to only use roaming = TRUE if the files your package will storing with rappdirs are going to be small. For more information about rappdirs see <a class="reference external" href="https://github.com/hadley/rappdirs">https://github.com/hadley/rappdirs</a>.</p>
+</div>
+<div class="section" id="options-and-starting-r">
+<h2>Options and Starting R<a class="headerlink" href="#options-and-starting-r" title="Permalink to this headline">¶</a></h2>
+<p>Several R Packages allow users to set global options that effect the behavior of the package using the options() function. The options() function returns a list, and named values in this list can be set using the following syntax: options(key = value). It’s a common feature for packages to allow a user to set options which may specify package defaults, or change the behavior of the package in some way. You should thoroughly document how your package is effected by which options are set.</p>
+<p>When an R session begins a series of files are searched for and run if found as detailed in help(“Startup”). One of those files is .Rprofile. The .Rprofile file is just a regular R file which is usually located in a user’s home directory (which you can find with normalizePath(“~”)). A user’s .Rprofile is run every time they start an R session, so it’s a good file for setting options that a user wants to be set when using R. If you want a user to be able to set an option that is related to your package that is unlikely to change (like a username or a key), then you should consider instructing them to create or make changes to their .Rprofile.</p>
+</div>
+<div class="section" id="package-installation">
+<h2>Package Installation<a class="headerlink" href="#package-installation" title="Permalink to this headline">¶</a></h2>
+<p>Your package documentation should prominently feature installation instructions. Many R packages that are distributed through GitHub recommend installing the devtools package, and then using <code class="docutils literal"><span class="pre">devtools::install_github()</span></code> to install the package. The devtools package is wonderful for developing R packages, but it has many dependencies whhich can make it difficult for users to install. I recommend instructing folks to use the ghit package by Thomas Leeper and the ghit::install_github() function as a reliable alternative to devtools.</p>
+<p>In cases where users might have a weak internet connection it’s often easier for a user to download the source of your package as a zip file and then to install it using <code class="docutils literal"><span class="pre">install.packages()</span></code>. Instead of asking users to discern the path of zip file they’ve downloaded you should ask them to enter <code class="docutils literal"><span class="pre">install.packages(file.choose(),</span> <span class="pre">repos</span> <span class="pre">=</span> <span class="pre">NULL,</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">&quot;source&quot;)</span></code> into the R console and then they can interactively select the file they just downloaded. If a user is denied permission to modify their local package directory, they still may be able to use a package if they specify a directory they have access to with the lib argument for <code class="docutils literal"><span class="pre">install.packages()</span></code>.</p>
+</div>
+<div class="section" id="environmental-attributes">
+<h2>Environmental Attributes<a class="headerlink" href="#environmental-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Personally you may need to know specific information about the hardware and software limitations of the computer that is running your R code. The environmental variables <code class="docutils literal"><span class="pre">.Platform</span></code> and <code class="docutils literal"><span class="pre">.Machine</span></code> are lists which contain named elements that can tell your program about the underlying machine. For example <code class="docutils literal"><span class="pre">.Platform$OS.type</span></code> is a good method for checking whether your program is in a Windows environment since the only values it can return are “windows” and “unix”:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="m">.</span>Platform<span class="o">$</span>OS.type
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;unix&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>For more information about information contained in <code class="docutils literal"><span class="pre">.Platform</span></code> see the help file: <code class="docutils literal"><span class="pre">help(&quot;.Platform&quot;)</span></code>.</p>
+<p>The <code class="docutils literal"><span class="pre">.Machine</span></code> variable contains information specific to the computer architecture that your program is being run on. For example <code class="docutils literal"><span class="pre">.Machine$double.xmax</span></code> and <code class="docutils literal"><span class="pre">.Machine$double.xmin</span></code> are respectively the largest and smallest positive numbers that can be represented in R on your platform:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="m">.</span>Machine<span class="o">$</span>double.xmax
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1.797693e+308</span>
+<span class="m">.</span>Machine<span class="o">$</span>double.xmax <span class="o">+</span> <span class="m">100</span> <span class="o">==</span> <span class="m">.</span>Machine<span class="o">$</span>double.xmax
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">TRUE</span>
+<span class="m">.</span>Machine<span class="o">$</span>double.xmin
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">2.225074e-308</span>
+</pre></div>
+</td></tr></table></div>
+<p>You might also find <code class="docutils literal"><span class="pre">.Machine$double.eps</span></code> useful, which is the smallest number on a machine such that <code class="docutils literal"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">.Machine$double.eps</span> <span class="pre">!=</span> <span class="pre">1</span></code> evaluates to TRUE:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="o">+</span> <span class="m">.</span>Machine<span class="o">$</span>double.eps <span class="o">!=</span> <span class="m">1</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">TRUE</span>
+<span class="m">1</span> <span class="o">+</span> <span class="m">.</span>Machine<span class="o">$</span>double.xmin <span class="o">!=</span> <span class="m">1</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="kc">FALSE</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>File and folder paths differ across platforms so R provides several functions to ensure that your program can construct paths correctly. The <code class="docutils literal"><span class="pre">rappdirs</span></code> package helps further by identifying locations where you can safely store files that your package can access. However before creating files anywhere on a user’s disk you should always ask the user’s permission. You should provide clear and easy instructions so people can easily install your package. The <code class="docutils literal"><span class="pre">.Platform</span></code> and <code class="docutils literal"><span class="pre">.Machine</span></code> variables can inform your program about hardware and software details.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="integration.html" class="btn btn-neutral" title="Continuous Integration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Ashish Khanal (US) and Suman Khanal (Nepal).
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
