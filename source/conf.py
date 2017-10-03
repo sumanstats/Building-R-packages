@@ -21,10 +21,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-import guzzle_sphinx_theme
 
-html_theme_path = guzzle_sphinx_theme.html_theme_path()
-html_theme = 'guzzle_sphinx_theme'
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -89,7 +86,7 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'bootstrap'
+html_theme = 'alabaster'
 
 
 # Theme options are theme-specific and customize the look and feel of a theme
