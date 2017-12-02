@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Compiled code &mdash; Building R Packages 1.0 documentation</title>
+  <title>src/ sub-directory &mdash; Building R Packages 1.0 documentation</title>
   
 
   
@@ -100,7 +100,8 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
 <li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Compiled code</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">src/ sub-directory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compiled-code">Compiled code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#buiding-the-setup-linux">Buiding the setup (Linux)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-gcc">Using GCC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-clang">Using Clang</a></li>
@@ -173,7 +174,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Compiled code</li>
+      <li>src/ sub-directory</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,8 +193,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="compiled-code">
-<h1>Compiled code<a class="headerlink" href="#compiled-code" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="src-sub-directory">
+<h1>src/ sub-directory<a class="headerlink" href="#src-sub-directory" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal"><span class="pre">src</span></code> sub-directory contains all of your C/C++ code, either in a single file, or
+in multiple files.</p>
+<div class="section" id="compiled-code">
+<h2>Compiled code<a class="headerlink" href="#compiled-code" title="Permalink to this headline">¶</a></h2>
 <p>In many cases we may need to include compiled code in our R packages.
 <code class="docutils literal"><span class="pre">Rcpp</span></code> package is especially useful and more easy to learn to include <code class="docutils literal"><span class="pre">C++</span></code> code
 in our packages.</p>
@@ -209,6 +214,7 @@ it is time to consider using Rcpp (C++).</p>
 <li>Changing the size of vectors dynamically.</li>
 <li>For advanced data structures and algorithms.</li>
 </ul>
+</div>
 <div class="section" id="buiding-the-setup-linux">
 <h2>Buiding the setup (Linux)<a class="headerlink" href="#buiding-the-setup-linux" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="using-gcc">

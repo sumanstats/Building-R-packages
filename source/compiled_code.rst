@@ -1,6 +1,13 @@
-=================
+==================
+src/ sub-directory
+==================
+
+The ``src`` sub-directory contains all of your C/C++ code, either in a single file, or 
+in multiple files.
+
+**************
 Compiled code
-=================
+**************
 
 
 In many cases we may need to include compiled code in our R packages.
