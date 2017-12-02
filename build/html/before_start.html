@@ -107,6 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
 <li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiled_code.html">Compiled code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
@@ -201,7 +202,9 @@
 </div>
 <div class="section" id="linux">
 <h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
-<p>If you are using R on a Unix-like system then you may have already have the tools for building R packages. In particular, if you built R from the sources, then you already have a C compiler and Fortran compiler. If, however, you installed R from a package management system, then you may need to install the compilers, as well as the header files. These usually coming in packages with the suffix -devel. For example, the header files for the readline package may come in the package readline-devel. The catch is that these -devel packages are not needed to run R, only to build R packages from the sources.</p>
+<p>If you are using R on a Unix-like system then you may have already have the tools for building R packages. In particular, if you built R from the sources, then you already have a C compiler and Fortran compiler.
+In <code class="docutils literal"><span class="pre">Debian</span></code>, <code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">build-essential</span></code> will install the necessary build tools like <code class="docutils literal"><span class="pre">gcc</span></code>, <code class="docutils literal"><span class="pre">g++</span></code>, <code class="docutils literal"><span class="pre">make</span></code> and many others.</p>
+<p>If, however, you installed R from a package management system, then you may need to install the compilers, as well as the <strong>header files</strong>. These usually coming in packages with the suffix <strong>-devel</strong>. For example, the header files for the readline package may come in the package <code class="docutils literal"><span class="pre">readline-devel</span></code>. The catch is that these <strong>-devel</strong> packages are not needed to run R, only to build R packages from the sources.</p>
 </div>
 </div>
 </div>

@@ -18,6 +18,7 @@ Building R Packages
    namespace_notation.rst
    loading-and-attaching-a-package-namespace.rst
    r-sub-directory.rst
+   compiled_code.rst
    man-sub-directory.rst
    devtools.rst
    documentation.rst

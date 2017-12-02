@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; Building R Packages 1.0 documentation</title>
+  <title>Compiled code &mdash; Building R Packages 1.0 documentation</title>
   
 
   
@@ -34,8 +34,10 @@
   
         <link rel="index" title="Index"
               href="genindex.html"/>
-        <link rel="search" title="Search" href="#"/>
-    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/> 
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Building R Packages 1.0 documentation" href="index.html"/>
+        <link rel="next" title="man/ sub-directory" href="man-sub-directory.html"/>
+        <link rel="prev" title="R/ sub-directory" href="r-sub-directory.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -71,7 +73,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -89,7 +91,7 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="before_start.html">Before You Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="r-packages.html">R Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_structure.html">Basic Structure of R package</a></li>
@@ -98,7 +100,15 @@
 <li class="toctree-l1"><a class="reference internal" href="namespace_notation.html">NAMESPACE function notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loading-and-attaching-a-package-namespace.html">NAMESPACE: load and attach</a></li>
 <li class="toctree-l1"><a class="reference internal" href="r-sub-directory.html">R/ sub-directory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compiled_code.html">Compiled code</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Compiled code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#buiding-the-setup-linux">Buiding the setup (Linux)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-gcc">Using GCC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-clang">Using Clang</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#test-your-setup">Test your setup</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="man-sub-directory.html">man/ sub-directory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devtools.html">devtools package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
@@ -163,10 +173,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Compiled code</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/compiled_code.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -178,19 +192,62 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="compiled-code">
+<h1>Compiled code<a class="headerlink" href="#compiled-code" title="Permalink to this headline">¶</a></h1>
+<p>In many cases we may need to include compiled code in our R packages.
+<code class="docutils literal"><span class="pre">Rcpp</span></code> package is especially useful and more easy to learn to include <code class="docutils literal"><span class="pre">C++</span></code> code
+in our packages.</p>
+<p>Other compiled languages can also be used: <code class="docutils literal"><span class="pre">Rust,</span> <span class="pre">C</span> <span class="pre">and</span> <span class="pre">Fortran</span></code>.
+This project is quite exciting as far as <code class="docutils literal"><span class="pre">Rust</span></code> is concerned: <a class="reference external" href="https://rustr.org/">https://rustr.org/</a>.
+For more details see <a class="reference external" href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R Extensions</a>.</p>
+<p>R is weak in some kinds of operations. If you need operations listed below,
+it is time to consider using Rcpp (C++).</p>
+<ul class="simple">
+<li>Loop operations.</li>
+<li>Accessing each elements of a vector/matrix.</li>
+<li>Recurrent function calls within loops.</li>
+<li>Changing the size of vectors dynamically.</li>
+<li>For advanced data structures and algorithms.</li>
+</ul>
+<div class="section" id="buiding-the-setup-linux">
+<h2>Buiding the setup (Linux)<a class="headerlink" href="#buiding-the-setup-linux" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-gcc">
+<h3>Using GCC<a class="headerlink" href="#using-gcc" title="Permalink to this headline">¶</a></h3>
+<p>To compile code in C++ in <code class="docutils literal"><span class="pre">Linux</span></code>, install r-base-dev with this command
+in your Debian/Ubuntu:
+<code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">r-base-dev</span></code>. This will pull gcc and g++ with openmp support to compile your C++ code.</p>
+</div>
+<div class="section" id="using-clang">
+<h3>Using Clang<a class="headerlink" href="#using-clang" title="Permalink to this headline">¶</a></h3>
+<p>In terminal, install clang, libiomp-dev and ccache:</p>
+<p><code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">ccache</span> <span class="pre">clang</span> <span class="pre">libiomp-dev</span></code>.</p>
+<p>Now create <code class="docutils literal"><span class="pre">~/.R/Makevars</span></code> file with:</p>
+<p><code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">~/.R/</span> <span class="pre">&amp;&amp;</span> <span class="pre">nano</span> <span class="pre">~/.R/Makevars</span></code></p>
+<p>and fill it with:</p>
+<div class="highlight-r"><div class="highlight"><pre><span></span>CC<span class="o">=</span>ccache clang <span class="o">-</span>Qunused<span class="o">-</span>arguments
+CXX<span class="o">=</span>ccache clang<span class="o">++</span> <span class="o">-</span>Qunused<span class="o">-</span>arguments
+CCACHE_CPP2<span class="o">=</span>yes
+</pre></div>
+</div>
+<p>After this your are ready to compile with clang.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use clang instead of gcc to compile your C++ code: it gives much better error messages.
+You can make clang the default by creating a ~/.R/Makevars (linux and mac) as shown above.</p>
+</div>
+</div>
+</div>
+<div class="section" id="test-your-setup">
+<h2>Test your setup<a class="headerlink" href="#test-your-setup" title="Permalink to this headline">¶</a></h2>
+<p>In your Linux box in terminal, type <code class="docutils literal"><span class="pre">R</span></code> to get R console and type:</p>
+<div class="highlight-r"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>install.packages<span class="p">(</span><span class="s">&quot;data.table&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>If it installs without any error, your setup for <code class="docutils literal"><span class="pre">Linux</span></code> is ready to experiment
+with compiled code in C/C++.</p>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            <div class="articleComments">
@@ -198,6 +255,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="man-sub-directory.html" class="btn btn-neutral float-right" title="man/ sub-directory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="r-sub-directory.html" class="btn btn-neutral" title="R/ sub-directory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -237,7 +303,6 @@
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -253,14 +318,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
