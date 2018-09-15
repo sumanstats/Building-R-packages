@@ -13,7 +13,7 @@ R packages are usually not as big in terms of lines of code compared to software
 Web services for continuous integration
 ***************************************
 
-We'll discuss two services for continuous integration: the first is `Travis <https://travis-ci.org/>`_ which will test your package on Linux, and then there's `AppVeyor <https://www.appveyor.com/>`_ which will test your package on Windows. Both of these services are free for R packages that are built in public GitHub repositories. These continuous integration services will run every time you push a new set of commits for your package repository. Both services integrate nicely with GitHub so you can see in GitHub's pull request pages whether or not your package is building correctly.
+We'll discuss three services for continuous integration: `Travis <https://travis-ci.org/>`_ and `CircleCI <https://circleci.com/>`_ which will test your package on Linux & MacOS, and then there's `AppVeyor <https://www.appveyor.com/>`_ which will test your package on Windows. All these services are free for R packages that are built in public GitHub repositories. These continuous integration services will run every time you push a new set of commits for your package repository. All these services integrate nicely with GitHub so you can see in GitHub's pull request pages whether or not your package is building correctly.
 
 
 Using Travis
@@ -32,6 +32,22 @@ You can start using AppVeyor by going to https://www.appveyor.com/ and signing i
 
 
 Open up your R console and navigate to your R package repository. Now load the devtools package with ``library(devtools)`` and enter ``use_appveyor()`` into your R console. This command will set up a default appveyor.yml for your R package. You can now add, commit, and push your changes to GitHub, which will trigger the first build of your package on AppVeyor. Go back to https://www.appveyor.com/ to see the result of the build. You may want to make some changes to your appveyor.yml file, and you can see all of the options available in the `r-appveyor guide <https://github.com/krlmlr/r-appveyor/blob/master/README.md>`_ which is maintained by Kirill Muller. Like Travis, AppVeyor also generates badges that you should add to the README.md file of your package's GitHub repository.
+
+
+Using CircleCI
+**************
+
+TravisCI works great, is popular among data scientists & developers, has built-in community support for R and is free only for open source projects. However using it for private repositories is not free. CircleCI v2.0 is thus a great alternative with a free plan that also includes private repositories.
+You can start using CircleCI by going to https://circleci.com/ and signing in with your GitHub or Bitbucket account. To add a project, find the bar on left and click *Add Project* after which you will find your repositories including the private ones. Then *Set Up Project* for the repo you want to continuously integrate.
+
+To use this CI service for your R package, 
+
++ Create a folder named .circleci in the package and add a file config.yml inside
++ Populate the config.yml. See `here <https://circleci.com/docs/2.0/sample-config/>`_
++ Start building once you set up the project
+
+
+See an `example here <https://appsilon.com/continuous-integration-for-your-private-r-projects-with-circleci/>`_.
 
 Summary
 *******
