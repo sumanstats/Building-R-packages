@@ -84,3 +84,5 @@ In your Linux box in terminal, type ``R`` to get R console and type:
 
 If it installs without any error, your setup for ``Linux`` is ready to experiment
 with compiled code in C/C++.
+
+For details on including **C++** code, read `Rewriting R code in C++ <https://adv-r.hadley.nz/rcpp.html>`_ chapter from Hadley's **Advanced R** book.
