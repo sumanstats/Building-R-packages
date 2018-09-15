@@ -22,6 +22,4 @@ If you are using R on a Unix-like system then you may have already have the tool
 In ``Debian``, ``apt-get install build-essential`` will install the necessary build tools like ``gcc``, ``g++``, ``make`` and many others.
 
 If, however, you installed R from a package management system, then you may need to install the compilers, as well as the **header files**. These usually coming in packages with the suffix **-devel**. For example, the header files for the readline package may come in the package ``readline-devel``. The catch is that these **-devel** packages are not needed to run R, only to build R packages from the sources.
-For using ``clang`` instead of ``gcc`` for package building, see :ref:`using-clang`.
-
-
+For using ``clang`` instead of ``gcc`` for package building, see :ref:`Using Clang <using-clang>`.
