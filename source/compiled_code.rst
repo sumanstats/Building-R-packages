@@ -41,6 +41,9 @@ To compile code in C++ in ``Linux``, install r-base-dev with this command
 in your Debian/Ubuntu:
 ``apt-get install r-base-dev``. This will pull gcc and g++ with openmp support to compile your C++ code.
 
+
+.. _using-clang:
+
 ^^^^^^^^^^^^
 Using Clang
 ^^^^^^^^^^^^
