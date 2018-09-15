@@ -46,6 +46,8 @@ To use this CI service for your R package,
 + Populate the config.yml. See `here <https://circleci.com/docs/2.0/sample-config/>`_
 + Start building once you set up the project
 
+Like Travis and AppVeyor, CircleCI also generates badges that you should add to the README.md file of your package’s GitHub/Bitbucket repository.
+
 
 See an `example here <https://appsilon.com/continuous-integration-for-your-private-r-projects-with-circleci/>`_.
 
