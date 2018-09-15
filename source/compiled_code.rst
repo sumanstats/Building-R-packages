@@ -15,8 +15,9 @@ In many cases we may need to include compiled code in our R packages.
 in our packages.
 
 Other compiled languages can also be used: ``Rust, C and Fortran``.
-This project is quite exciting as far as ``Rust`` is concerned: `<https://rustr.org/>`_.
-For more details see `Writing R Extensions <https://cran.r-project.org/doc/manuals/r-release/R-exts.html>`_.
+
+For including ``Rust`` code in R, this project looks promising: `<https://rustr.org/>`_.
+For more details see **Writing R Extensions:** `System and foreign language interfaces <https://cran.r-project.org/doc/manuals/r-release/R-exts.html#System-and-foreign-language-interfaces>`_.
 
 R is weak in some kinds of operations. If you need operations listed below, 
 it is time to consider using Rcpp (C++).
