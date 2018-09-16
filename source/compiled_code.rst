@@ -2,7 +2,7 @@
 src/ sub-directory
 ==================
 
-The ``src`` sub-directory contains all of your C/C++ code, either in a single file, or 
+The ``src`` sub-directory contains all of your ``C/C++`` or ``Fortran`` or ``Rust`` code, either in a single file, or 
 in multiple files.
 
 **************
@@ -50,7 +50,7 @@ Using Clang
 
 In terminal, install clang, libiomp-dev and ccache:
 
-``apt-get install ccache clang libiomp-dev``.
+``apt-get install ccache clang libiomp-dev``
 
 Now create ``~/.R/Makevars`` file with:
 
