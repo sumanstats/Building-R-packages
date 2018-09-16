@@ -1,8 +1,8 @@
-=======
-usethis
-=======
+===============
+usethis package
+===============
 
-usethis is a workflow package: it automates repetitive tasks that arise during project setup and development, both for R packages and non-package projects.
+``usethis`` is a workflow package: it automates repetitive tasks that arise during project setup and development, both for R packages and non-package projects.
 
 -----
 Usage
