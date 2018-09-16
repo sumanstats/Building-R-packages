@@ -48,7 +48,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Building R Packages'
-copyright = '2017-2018, Ashish Khanal (US) and Suman Khanal (Nepal)'
+copyright = '2017-2018, Ashish Khanal (US) and Dr Suman Khanal (Nepal)'
 author = 'Ashish Khanal (US) and Dr Suman Khanal (Nepal)'
 
 # The version info for the project you're documenting, acts as replacement for

@@ -48,7 +48,7 @@ In addition to starting a package using create or by creating a new project in R
 
 Figure below gives an example of what the new package directory will look like after you create an initial package structure with create or via the RStudio "New Project" interface. This initial package directory includes an R subdirectory, where you will save R scripts with all code defining R functions for the package. It also includes two files that will store metadata and interface information about your package (DESCRIPTION and NAMESPACE), as well as an R project file (.Rproj extension) that saves some project options for the directory. Finally, the initial package structure includes two files that can be used to exclude some files in the directory from either being followed by git ``(.gitignore)`` or included when the package is built ``(.Rbuildignore)``. These two files have names that start with a dot, so they may not be listed if you look at the package directory structure in a file manager like "Finder" on Macs. These "dot-files" will, however, be listed in the "Files" tab that shows up in one of the RStudio panes when you open an R project like a package directory, as shown in this figure.
 
-.. image:: images/package.png
+.. image:: images/package.PNG
   :width: 800
 
 
