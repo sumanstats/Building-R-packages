@@ -21,6 +21,7 @@ Building R Packages
    compiled_code.rst
    man-sub-directory.rst
    devtools.rst
+   usethis.rst
    documentation.rst
    vignettes-and-readme.rst
    knitr-markdown.rst
