@@ -9,31 +9,40 @@ Hands down, the best resource for mastering the devtools package is the book R P
 Here are some of the key functions included in devtools and what they do, roughly in the order you are likely to use them as you develop an R package:
 
 
-load_all
-  Load the code for all functions in the package
-document
-  Create \\man documentation files and the "NAMESPACE" file from roxygen2 code
-use_data
-  Save an object in your R session as a dataset in the package
-use_vignette
-  Set up the package to include a vignette
-use_readme_rmd
-  Set up the package to include a README file in Rmarkdown format
-use_build_ignore
-  Specify files that should be ignored when building the R package (for example, if you have a folder where you're drafting a journal article about the package, you can include all related files in a folder that you set to be ignored during the package build)
-check
-  Check the full R package for any ERRORs, WARNINGs, or NOTEs
-build_win
-  Build a version of the package for Windows and send it to be checked on a Windows machine. You'll receive an email with a link to the results.
-use_travis
-  Set the package up to facilitate using Travis CI with the package
-use_cran_comments
-  Create a file where you can add comments to include with your CRAN submission.
-submit_cran
-  Submit the package to CRAN
-use_news_md
-  Add a file to the package to give news on changes in new versions
-  
+
+.. list-table:: **devtools** functions
+   :widths: 25 55
+   :header-rows: 1
+
+   * - Function
+     - Use
+     
+   * - **load_all**
+     - Load the code for all functions in the package
+   * - **document**
+     - Create \\man documentation files and the “NAMESPACE” file from roxygen2 code
+   * - **use_data**
+     - Save an object in your R session as a dataset in the package
+   * - **use_vignette**
+     - Set up the package to include a vignette
+   * - **use_readme_rmd**
+     - Set up the package to include a README file in Rmarkdown format
+   * - **use_build_ignore**
+     - Specify files that should be ignored when building the R package (for example, if you have a folder where you’re drafting a journal article about the package, you can include all related files in a folder that you set to be ignored during the package build)
+   * - **check**
+     - Check the full R package for any ERRORs, WARNINGs, or NOTEs
+   * - **build_win**
+     - Build a version of the package for Windows and send it to be checked on a Windows machine. You’ll receive an email with a link to the results.
+   * - **use_travis**
+     - Set the package up to facilitate using Travis CI with the package
+   * - **use_cran_comments**
+     - Create a file where you can add comments to include with your CRAN submission.
+   * - **submit_cran**
+     - Submit the package to CRAN
+   * - **use_news_md**
+     - Add a file to the package to give news on changes in new versions 
+
+
 
 Some of these functions you'll only need to use once for a package. The one-time (per package) functions are mostly those that set up a certain type of infrastructure for the package. For example, if you want to use R Markdown to create a README file for a package you are posting to GitHub, you can create the proper infrastructure with the ``use_readme_rmd`` function. This function adds a starter README file in the main directory of the package with the name "README.Rmd". You can edit this file and render it to Markdown to provide GitHub users more information about your package. However, you will have problems with your CRAN checks if there is a README file in this top-level directory of the package, so the ``use_readme_rmd`` function also adds the files names for the R Markdown README file, and the Markdown file it creates, in the ".Rbuildignore" file, so it is not included when the package is built.
 
