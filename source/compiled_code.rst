@@ -30,7 +30,7 @@ it is time to consider using Rcpp (C++).
 
 
 *************************
-Buiding the setup (Linux)
+Building the setup (Linux)
 *************************
 
 ^^^^^^^^^
