@@ -10,7 +10,7 @@ Here are some of the key functions included in devtools and what they do, roughl
 
 
 
-.. list-table:: **devtools** functions
+.. list-table:: Useful **devtools** functions
    :widths: 25 55
    :header-rows: 1
 
