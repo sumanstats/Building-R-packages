@@ -140,11 +140,13 @@ Other useful functions are
    * - **use_vignette**
      - Create a vignette
    * - **use_travis**
-     - Enable CI using Travis
+     - Enable CI using Travis, creates ``.travis.yml`` with basic configuration for testing
    * - **use_github_actions**
      - Sets up continuous integration (CI) using GitHub Actions
    * - **use_appveyor**
-     - Enable CI using AppVeyor  
+     - Enable CI using AppVeyor, creates ``appveyor.yml`` with basic configuration for testing 
+   * - **use_circleci**  
+     - Enable CI using CircleCI, creates ``.circleci/config.yml`` with basic configuration for testing 
    * - **use_coverage**
      - Adds test coverage reporting to a package
    * - **use_logo**
