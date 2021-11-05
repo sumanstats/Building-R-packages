@@ -24,7 +24,7 @@ Here are some of the key functions included in devtools and what they do, roughl
    * - **load_all**
      - Load the code for all functions in the package, roughly simulates what happens when a package is installed and loaded with ``library()``
    * - **document**
-     - Create ``man`` documentation files and the “NAMESPACE” file from roxygen2 code
+     - Create ``man`` documentation files and the “NAMESPACE” file from ``roxygen2`` code
    * - **use_readme_rmd**
      - Set up the package to include a README file in Rmarkdown format
    * - **use_build_ignore**
@@ -32,11 +32,11 @@ Here are some of the key functions included in devtools and what they do, roughl
    * - **check**
      - Check the full R package for any ERRORs, WARNINGs, or NOTEs
    * - **check_win_devel**
-     - Check package on the development version of R.
+     - Check package on the development version of ``R``.
    * - **check_win_release**
-     - Check package on the release version of R. Once building is complete you'll receive a link to the built package in the email address listed in the maintainer field.
+     - Check package on the release version of ``R``. Once building is complete you'll receive a link to the built package in the email address listed in the maintainer field.
    * - **check_win_oldrelease**
-     - Check package on the previous major release version of R.
+     - Check package on the previous major release version of ``R``.
    * - **submit_cran**
      - Submit the package to CRAN
    * - **build_site**
@@ -46,7 +46,7 @@ Here are some of the key functions included in devtools and what they do, roughl
    * - **install_github**
      - Install package from GitHub repository
    * - **install_gitlab**
-     - Install package from Gitlab repository 
+     - Install package from GitLab repository 
    * - **install_bitbucket**
      - Install package from Bitbucket repository      
    * - **test_coverage**
