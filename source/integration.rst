@@ -13,7 +13,7 @@ R packages are usually not as big in terms of lines of code compared to software
 Web services for continuous integration
 ***************************************
 
-We'll discuss various services for continuous integration, most common are _`GitHub Actions <https://github.com/features/actions>`_ , `Travis <https://travis-ci.org/>`_ , `CircleCI <https://circleci.com/>`_ and `AppVeyor <https://www.appveyor.com/>`_. Appveyor though has all environments to test, it is good for testing your package on Windows. All these services are free for R packages that are built in public GitHub repositories. These continuous integration services will run every time you push a new set of commits for your package repository. All these services integrate nicely with GitHub so you can see in GitHub's pull request pages whether or not your package is building correctly.
+We'll discuss various services for continuous integration, most common are `GitHub Actions <https://github.com/features/actions>`_ , `Travis <https://travis-ci.org/>`_ , `CircleCI <https://circleci.com/>`_ and `AppVeyor <https://www.appveyor.com/>`_. Appveyor though has all environments to test, it is good for testing your package on Windows. All these services are free for R packages that are built in public GitHub repositories. These continuous integration services will run every time you push a new set of commits for your package repository. All these services integrate nicely with GitHub so you can see in GitHub's pull request pages whether or not your package is building correctly.
 
 
 Using GitHub Actions
