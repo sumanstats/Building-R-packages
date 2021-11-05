@@ -170,7 +170,9 @@ Other useful functions are
    * - **use_logo**
      - Adds a logo to a package     
    * - **use_cran_comments**
-     - Create a file where you can add comments to include with your CRAN submission.
+     - Create a file where you can add comments to include with your CRAN submission
+   * - **use_readme_rmd** 
+     - Set up the package to include a README file in Rmarkdown format. So rich intermingling of code and output is possible.
    * - **use_news_md**
      - Add a file to the package to give news on changes in new versions 
 
