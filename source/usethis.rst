@@ -23,6 +23,24 @@ usethis is quite chatty, explaining what it’s doing and assigning you
 tasks. ``✔`` indicates something usethis has done for you. ``●`` indicates
 that you’ll need to do some work yourself.
 
+
+
+
+.. note::
+   Before using ``usethis`` functions, make sure to get a PAT from GitHub and store it in GITHUB_PAT envrironment variable. 
+   If it is already available, no need to set this. The easiest way to get PAT is with ``usethis`` and then store it in git credentials. 
+   
+   
+   .. code-block:: r
+        
+       usethis::create_github_token()
+       gitcreds::gitcreds_set()
+       
+   The other way is to use ``credentials::set_github_pat()``. If you want to drop existing GITHUB_PAT and ask for a new one, run 
+   ``credentials::set_github_pat(force_new = TRUE)``.
+
+
+
 Below is a quick look at how usethis can help to set up a package. But
 remember, many usethis functions are also applicable to analytical
 projects that are not packages.
