@@ -1,6 +1,6 @@
 # Building-R-packages
 
-[![Documentation Status](https://readthedocs.org/projects/rstats-pkgs/badge/?version=latest)](http://rstats-pkgs.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/building-r-packages/badge/?version=latest)](https://building-r-packages.readthedocs.io/en/latest/?badge=latest)
 
 
 Tutorial on building R packages. Useful for beginners.
