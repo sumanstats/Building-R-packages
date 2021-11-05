@@ -14,7 +14,7 @@ Here are some of the key functions included in devtools and what they do, roughl
    :widths: 25 55
    :header-rows: 1
 
-   * - Function
+   * - Functions
      - Use
 
    * - **bash**
@@ -75,7 +75,7 @@ Other functions in devtools
 
 In contrast to the devtools infrastructure functions that you will only use once per package, there are other devtools functions you'll use many times as you develop a package. Two of the work horses of devtools are ``load_all`` and ``document``. The ``load_all`` function loads the entire package (by default, based on the current working directory, although you can also give the filepath to load a directory elsewhere). In addition to loading all R functions, **it also loads all package data and compiles and connects C, C++, and FORTRAN** code in the package. As you add to a package, you can use load_all to ensure you're using the latest version of all package functions and data. The ``document`` function rewrites the help files and NAMESPACE file based on the latest version of the **roxygen2 comments included with each function** (writing roxygen2 is covered in more detail in the next section).
 
-RStudio has created a very helpful Package Development Cheatsheet that covers many of the devtools functions. A pdf of this cheatsheet is `available here <https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf>`_. Other cheatsheets for vaious packages can be found _`here <https://www.rstudio.com/resources/cheatsheets/>`_.
+RStudio has created a very helpful Package Development Cheatsheet that covers many of the devtools functions. A pdf of this cheatsheet is `available here <https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf>`_. Other cheatsheets for vaious packages can be found `here <https://www.rstudio.com/resources/cheatsheets/>`_.
 
 
 
