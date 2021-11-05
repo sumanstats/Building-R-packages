@@ -4,7 +4,7 @@ devtools package
 
 R package development has become substantially easier in recent years with the introduction of a package by Hadley Wickham called devtools. As the package name suggests, this includes a variety of functions that facilitate software development in R.
 
-Hands down, the best resource for mastering the devtools package is the book R Packages by Hadley Wickham. The full book is available online for free at http://r-pkgs.had.co.nz. It is also available as a hard copy book published by O'Reilly. If you plan to develop a lot of R packages, it is well worth your time to read this book closely.
+Hands down, the best resource for mastering the devtools package is the book R Packages by Hadley Wickham. The full book is available online for free at https://r-pkgs.org/. It is also available as a hard copy book published by O'Reilly. If you plan to develop a lot of R packages, it is well worth your time to read this book closely.
 
 Here are some of the key functions included in devtools and what they do, roughly in the order you are likely to use them as you develop an R package:
 
@@ -16,32 +16,41 @@ Here are some of the key functions included in devtools and what they do, roughl
 
    * - Function
      - Use
-     
+
+   * - **bash**
+     - Open bash shell in package directory 
+   * - **create**
+     - Create a package 
    * - **load_all**
-     - Load the code for all functions in the package
+     - Load the code for all functions in the package, roughly simulates what happens when a package is installed and loaded with ``library()``
    * - **document**
-     - Create \\man documentation files and the “NAMESPACE” file from roxygen2 code
-   * - **use_data**
-     - Save an object in your R session as a dataset in the package
-   * - **use_vignette**
-     - Set up the package to include a vignette
+     - Create ``man`` documentation files and the “NAMESPACE” file from roxygen2 code
    * - **use_readme_rmd**
      - Set up the package to include a README file in Rmarkdown format
    * - **use_build_ignore**
      - Specify files that should be ignored when building the R package (for example, if you have a folder where you’re drafting a journal article about the package, you can include all related files in a folder that you set to be ignored during the package build)
    * - **check**
      - Check the full R package for any ERRORs, WARNINGs, or NOTEs
-   * - **build_win**
-     - Build a version of the package for Windows and send it to be checked on a Windows machine. You’ll receive an email with a link to the results.
-   * - **use_travis**
-     - Set the package up to facilitate using Travis CI with the package
-   * - **use_cran_comments**
-     - Create a file where you can add comments to include with your CRAN submission.
+   * - **check_win_devel**
+     - Check package on the development version of R.
+   * - **check_win_release**
+     - Check package on the release version of R. Once building is complete you'll receive a link to the built package in the email address listed in the maintainer field.
+   * - **check_win_oldrelease**
+     - Check package on the previous major release version of R.
    * - **submit_cran**
      - Submit the package to CRAN
-   * - **use_news_md**
-     - Add a file to the package to give news on changes in new versions 
-
+   * - **build_site**
+     - Generates the static HTML documentation for the package
+   * - **build_readme**
+     - Locates ``README.Rmd`` and builds it into a ``README.md``
+   * - **install_github**
+     - Install package from GitHub repository
+   * - **install_gitlab**
+     - Install package from Gitlab repository 
+   * - **install_bitbucket**
+     - Install package from Bitbucket repository      
+   * - **test_coverage**
+     - Computes test coverage for your package
 
 
 Some of these functions you'll only need to use once for a package. The one-time (per package) functions are mostly those that set up a certain type of infrastructure for the package. For example, if you want to use R Markdown to create a README file for a package you are posting to GitHub, you can create the proper infrastructure with the ``use_readme_rmd`` function. This function adds a starter README file in the main directory of the package with the name "README.Rmd". You can edit this file and render it to Markdown to provide GitHub users more information about your package. However, you will have problems with your CRAN checks if there is a README file in this top-level directory of the package, so the ``use_readme_rmd`` function also adds the files names for the R Markdown README file, and the Markdown file it creates, in the ".Rbuildignore" file, so it is not included when the package is built.
