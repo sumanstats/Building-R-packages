@@ -104,3 +104,54 @@ projects that are not packages.
     #> ✔ Initialising Git repo
     #> ✔ Adding '.Rhistory', '.RData', '.Rproj.user' to '.gitignore'
 
+
+
+
+
+
+Other useful functions are 
+
+
+.. list-table:: Other useful **usethis** functions
+   :widths: 25 55
+   :header-rows: 1
+
+   * - Functions
+     - Use
+
+   * - **use_description**
+     - Create or modify ``DESCRIPTION``     
+   * - **edit_r_profile**
+     - opens ``.Rprofile``
+   * - **edit_r_environ**
+     - opens ``.Renviron``
+   * - **edit_r_makevars**
+     - opens ``.R/Makevars``
+   * - **use_r**
+     - Create or edit ``R`` script files
+   * - **use_package**
+     - Adds a CRAN package dependency to DESCRIPTION
+   * - **use_import_from**
+     - Imports a function from another package by adding the roxygen2 ``@importFrom`` tag to the package-level documentation. Importing a function from another package allows you to refer to it without a namespace (e.g., ``fun()`` instead of ``package::fun()``).
+   * - **use_c**
+     - Adds infrastructure needed to use compiled code
+   * - **use_cpp11**
+     - Use C++ via the ``cpp11`` package
+   * - **use_vignette**
+     - Create a vignette
+   * - **use_travis**
+     - Enable CI using Travis
+   * - **use_github_actions**
+     - Sets up continuous integration (CI) using GitHub Actions
+   * - **use_appveyor**
+     - Enable CI using AppVeyor  
+   * - **use_coverage**
+     - Adds test coverage reporting to a package
+   * - **use_logo**
+     - Adds a logo to a package     
+   * - **use_cran_comments**
+     - Create a file where you can add comments to include with your CRAN submission.
+   * - **use_news_md**
+     - Add a file to the package to give news on changes in new versions 
+
+
